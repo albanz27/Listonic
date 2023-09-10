@@ -7,6 +7,7 @@
 
 #include "string"
 #include <iostream>
+#include <utility>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ private:
     int quantita;
 
 public:
-    ShoppingItem(const string& nome, const string& categoria, int quantita) : nome(nome), categoria(categoria),quantita(quantita){}
+    ShoppingItem(string  nome, string  categoria, int quantita);
 
     void view();
 
