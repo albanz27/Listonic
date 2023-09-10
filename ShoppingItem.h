@@ -17,7 +17,7 @@ private:
     int quantita;
 
 public:
-    ShoppingItem(string nome, string categoria, int quantita) : nome(nome), categoria(categoria),quantita(quantita){}
+    ShoppingItem(const string& nome, const string& categoria, int quantita) : nome(nome), categoria(categoria),quantita(quantita){}
 
     void view();
 
