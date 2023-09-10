@@ -1,2 +1,7 @@
 /cmake-build-debug/.cmake/api/v1/query/cache-v2
 /cmake-build-debug/
+/.idea/.gitignore
+/.idea/Listonic.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
