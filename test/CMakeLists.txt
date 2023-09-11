@@ -3,6 +3,7 @@ set(gtest_SOURCE_DIR, ./lib/googletest-main/)
 include_directories(${gtest_SOURCE_DIR}/include ${test_SOURCE_DIR})
 
 
-set(SOURCE_TEST_FILES runAllTests.cpp)
+set(SOURCE_TEST_FILES runAllTests.cpp
+        ShoppinItemTest.cpp)
 add_executable(runAllTests.cpp ${SOURCE_TEST_FILES})
 target_link_libraries(runAllTests.cpp gtest gtest_main core)
