@@ -23,6 +23,13 @@ bool ShoppingList::removeOggetto(const string &n) {
     return false;
 }
 
+void ShoppingList::play() const{
+    cout<<"Lista = "<<getNome()<<endl;
+    for(auto oggetto:oggetti)
+        oggetto.view();
+}
+
+
 const string &ShoppingList::getNome() const {
     return nome;
 }
@@ -30,3 +37,35 @@ const string &ShoppingList::getNome() const {
 const list<ShoppingItem> &ShoppingList::getOggetti() const {
     return oggetti;
 }
+
+bool ShoppingList::aumQuantita(const string &n, int q) {
+    for(auto itr=oggetti.begin();itr!=oggetti.end();itr++){
+        if(itr->getNome()==n) {
+             cout<<"Aumento = "<<itr->getNome()<<endl;
+             itr->setQuantita(itr->getQuantita()+q);
+             //notifyObservers();
+             return true;
+        }
+    }
+    return false;
+}
+
+bool ShoppingList::dimQuantita(const string &n, int q) {
+    for(auto itr=oggetti.begin();itr!=oggetti.end();itr++){
+        if(itr->getNome()==n) {
+            if(itr->getQuantita()<=q) {
+                cout<<"Rimozione = "<<itr->getNome()<<endl;
+                oggetti.erase(itr);
+                return true;
+            }
+            else{
+                cout<<"Diminuzione = "<<itr->getNome()<<endl;
+                itr->setQuantita(itr->getQuantita()-q);
+                //notifyObservers();
+                return true;
+            }
+        }
+    }
+    return false;
+}
+

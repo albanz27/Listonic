@@ -33,6 +33,9 @@ public:
     int getQuantita() const {
         return quantita;
     }
+
+    void setQuantita(int quantita);
+
 };
 
 

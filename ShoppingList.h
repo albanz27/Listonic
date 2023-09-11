@@ -22,11 +22,11 @@ public:
 
     bool removeOggetto(const string &n);
 
-    void play() const {
-        cout<<"Lista = "<<getNome()<<endl;
-        for(auto oggetto:oggetti)
-            oggetto.view();
-    }
+    bool aumQuantita(const string &n, int q);
+
+    bool dimQuantita(const string &n, int q);
+
+    void play() const;
 
     const string &getNome() const;
 

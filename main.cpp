@@ -21,18 +21,24 @@ int main() {
     ShoppingItem oggetto2("tortellini","pasta",10);
     //oggetto.view();
 
+    /*
     string nomeLista;
     cout<<"Inserisci il nome della nuova lista"<<endl;
     cin>>nomeLista;
     ShoppingList lista(nomeLista);
+     */
+    ShoppingList lista("spesa");
     lista.addOggetto(oggetto);
     lista.addOggetto(oggetto2);
     lista.play();
     cout<<endl<<endl;
-    lista.removeOggetto("BANANA");
-    cout<<endl<<endl;
+    lista.dimQuantita("BANANA",1);
     lista.play();
+    cout<<endl<<endl;
 
+    lista.aumQuantita("tortellini",10);
+    lista.play();
+    cout<<endl<<endl;
 
     return 0;
 }

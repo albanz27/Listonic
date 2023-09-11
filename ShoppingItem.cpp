@@ -15,3 +15,7 @@ void ShoppingItem::view(){
 
 }
 
+void ShoppingItem::setQuantita(int quantita) {
+    ShoppingItem::quantita = quantita;
+}
+
