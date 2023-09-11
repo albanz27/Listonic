@@ -22,7 +22,6 @@ public:
 
     void view();
 
-
     const string &getNome() const {
         return nome;
     }
