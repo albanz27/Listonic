@@ -5,6 +5,16 @@
 
 using namespace std;
 
+/*
+ *  Classi che rappresentano una lista della spesa (es. Listonic):
+ *  un utente deve avere diverse liste della spesa dove segnare
+ *  oggetti da acquistare che appartengono a diverse categorie
+ *  ed eventualmente con quantità da acquistare.
+ *  Si usa Observer per aggiornare il numero di oggetti da acquistare
+ *  in una lista e quali questi siano.
+ *  Si possono avere più utenti che condividono la stessa lista
+ */
+
 int main() {
     string nomeOggetto, categoria;
     int quantita;
@@ -19,26 +29,39 @@ int main() {
      */
     ShoppingItem oggetto("BANANA","FRUTTA",2);
     ShoppingItem oggetto2("tortellini","pasta",10);
-    //oggetto.view();
-
-    /*
+    ShoppingItem oggetto3("mela","FRUTTA",5);
+    ShoppingItem oggetto4("FARINA","IMPASTO",2);
+    ShoppingItem oggetto5("UOVA","PROTEINE",4);
+    /*  PROVA TASTIERA: INSERIMENTO OGGETTI NELLA LISTA
     string nomeLista;
     cout<<"Inserisci il nome della nuova lista"<<endl;
     cin>>nomeLista;
     ShoppingList lista(nomeLista);
      */
     ShoppingList lista("spesa");
-    lista.addOggetto(oggetto);
+    ShoppingList lista2("merenda");
+//    lista.addOggetto(oggetto);
     lista.addOggetto(oggetto2);
+//    lista.addOggetto(oggetto3);
+//    lista.addOggetto(oggetto4);
+    lista2.addOggetto(oggetto2);
+//    lista2.addOggetto(oggetto5);
+
     lista.play();
     cout<<endl<<endl;
-    lista.dimQuantita("BANANA",1);
-    lista.play();
+    lista2.play();
     cout<<endl<<endl;
 
-    lista.aumQuantita("tortellini",10);
+    lista.dimQuantita("tortellini",100);
+    lista2.aumQuantita("tortellini",10);
+
     lista.play();
     cout<<endl<<endl;
+    lista2.play();
+    cout<<endl<<endl;
+
+
+
 
     return 0;
 }
