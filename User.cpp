@@ -8,15 +8,15 @@ User::User(const string &n) : nome(n) {}
 
 void User::addLista(ShoppingList *lista) {
     liste.push_back(lista);
-    //list->addObserver(this);
+    lista->addObserver(this);
 }
 
 bool User::remLista(const string &n) {
     for(auto itr=liste.begin();itr!=liste.end();itr++){
         if((*itr)->getNome()==n) {
             cout<<"Rimozione = "<<(*itr)->getNome()<<endl;
+            (*itr)->removeObserver(this);
             liste.erase(itr);
-            //notifyObservers();
             return true;
         }
     }

@@ -1,19 +1,17 @@
-//
-// Created by alban on 12/09/2023.
-//
-
 #ifndef LISTONIC_USER_H
 #define LISTONIC_USER_H
 
 #include "string"
 #include "list"
 #include "ShoppingList.h"
+#include "Observer.h"
 using namespace std;
 
-class User {
+class User: public Observer{
 private:
     string nome;
     list<ShoppingList*> liste;
+
 public:
     // Costruttore Utente
     explicit User(const string &n);

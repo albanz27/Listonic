@@ -1,16 +1,13 @@
-//
-// Created by alban on 11/09/2023.
-//
-
 #ifndef LISTONIC_SHOPPINGLIST_H
 #define LISTONIC_SHOPPINGLIST_H
 
 #include "string"
 #include "list"
 #include "ShoppingItem.h"
+#include "Subject.h"
 using namespace std;
 
-class ShoppingList {
+class ShoppingList: public Subject{
 private:
     string nome;
     list<ShoppingItem> oggetti;

@@ -18,7 +18,7 @@ public:
         observers.remove(observer);
     }
 
-    void notifyObservers() {
+    void notify() {
         for (Observer* observer : observers) {
             observer->update();
         }

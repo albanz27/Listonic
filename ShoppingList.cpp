@@ -8,7 +8,7 @@ ShoppingList::ShoppingList(const string &n) : nome(n) {}
 
 void ShoppingList::addOggetto(const ShoppingItem &oggetto) {
     oggetti.push_back(oggetto);
-    //notifyObservers();
+    notify();
 }
 
 bool ShoppingList::removeOggetto(const string &n) {
@@ -16,7 +16,7 @@ bool ShoppingList::removeOggetto(const string &n) {
         if(itr->getNome()==n) {
             cout<<"Rimozione = "<<itr->getNome()<<endl;
             oggetti.erase(itr);
-            //notifyObservers();
+            notify();
             return true;
         }
     }
@@ -43,7 +43,7 @@ bool ShoppingList::aumQuantita(const string &n, int q) {
         if(itr->getNome()==n) {
              cout<<"Aumento = "<<itr->getNome()<<endl;
              itr->setQuantita(itr->getQuantita()+q);
-             //notifyObservers();
+             notify();
              return true;
         }
     }
@@ -56,12 +56,13 @@ bool ShoppingList::dimQuantita(const string &n, int q) {
             if(itr->getQuantita()<=q) {
                 cout<<"Rimozione = "<<itr->getNome()<<endl;
                 oggetti.erase(itr);
+                notify();
                 return true;
             }
             else{
                 cout<<"Diminuzione = "<<itr->getNome()<<endl;
                 itr->setQuantita(itr->getQuantita()-q);
-                //notifyObservers();
+                notify();
                 return true;
             }
         }
