@@ -2,6 +2,7 @@
 #include "string"
 #include "ShoppingItem.h"
 #include "ShoppingList.h"
+#include "User.h"
 
 using namespace std;
 
@@ -16,8 +17,8 @@ using namespace std;
  */
 
 int main() {
-    string nomeOggetto, categoria;
-    int quantita;
+   // string nomeOggetto, categoria;
+    //int quantita;
     /* PROVA TASTIERA: INSERIMENTO OGGETTI
     cout<<"Inserisci il nome dell'oggetto desiderato "<<endl;
     cin>>nomeOggetto;
@@ -40,27 +41,35 @@ int main() {
      */
     ShoppingList lista("spesa");
     ShoppingList lista2("merenda");
-//    lista.addOggetto(oggetto);
+    lista.addOggetto(oggetto);
     lista.addOggetto(oggetto2);
-//    lista.addOggetto(oggetto3);
-//    lista.addOggetto(oggetto4);
+    lista.addOggetto(oggetto3);
+    lista.addOggetto(oggetto4);
     lista2.addOggetto(oggetto2);
-//    lista2.addOggetto(oggetto5);
+    lista2.addOggetto(oggetto5);
 
     lista.play();
     cout<<endl<<endl;
     lista2.play();
     cout<<endl<<endl;
 
-    lista.dimQuantita("tortellini",100);
-    lista2.aumQuantita("tortellini",10);
+    //lista.dimQuantita("tortellini",100);
+    //lista2.aumQuantita("tortellini",10);
 
-    lista.play();
+    User utente1("Alban");
+    User utente2("Osman");
+
+    utente1.addLista(&lista);
+    utente1.addLista(&lista2);
+    utente2.addLista(&lista);
+
+    utente1.view();
     cout<<endl<<endl;
-    lista2.play();
+    utente2.view();
     cout<<endl<<endl;
 
-
+    utente1.remLista("spesa");
+    utente1.view();
 
 
     return 0;
