@@ -1,7 +1,3 @@
-//
-// Created by alban on 12/09/2023.
-//
-
 #include "User.h"
 
 User::User(const string &n) : nome(n) {}
@@ -23,7 +19,6 @@ bool User::remLista(const string &n) {
     return false;
 }
 
-
 void User::view() {
     cout<<"Utente "<<nome<<", visualizzazione liste ->"<<endl;
     for(auto lista:liste)
@@ -31,7 +26,7 @@ void User::view() {
 }
 
 void User::update() {
-    cout << "Utente " << nome << " è stato notificato di un cambiamento della lista." <<endl;
+    cout << "Utente " << nome << " e' stato notificato di un cambiamento della lista." <<endl;
 }
 
 const string &User::getNome() const {
@@ -49,6 +44,3 @@ const list<ShoppingList *> &User::getListe() const {
 void User::setListe(const list<ShoppingList *> &liste) {
     User::liste = liste;
 }
-
-
-
