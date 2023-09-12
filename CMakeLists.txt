@@ -8,6 +8,8 @@ add_subdirectory(test)
 set(SOURCE_FILES ShoppingItem.cpp ShoppingItem.h)
 add_executable(Listonic main.cpp ShoppingItem.cpp
         ShoppingList.cpp
-        ShoppingList.h)
+        ShoppingList.h
+        User.cpp
+        User.h)
 add_library(core ${SOURCE_FILES})
 target_link_libraries(Listonic core)
