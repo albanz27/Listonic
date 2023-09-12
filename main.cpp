@@ -3,6 +3,7 @@
 #include "ShoppingItem.h"
 #include "ShoppingList.h"
 #include "User.h"
+#include "Observer.h"
 
 using namespace std;
 

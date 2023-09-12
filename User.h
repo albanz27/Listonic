@@ -27,9 +27,6 @@ public:
     //visualizzazione liste utenti
     void view();
 
-
-
-
     // Aggiornamento cambiamenti di stato
     void update() ;//override
 

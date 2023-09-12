@@ -10,6 +10,8 @@ add_executable(Listonic main.cpp ShoppingItem.cpp
         ShoppingList.cpp
         ShoppingList.h
         User.cpp
-        User.h)
+        User.h
+        Observer.h
+        Subject.h)
 add_library(core ${SOURCE_FILES})
 target_link_libraries(Listonic core)
