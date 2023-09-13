@@ -15,7 +15,7 @@ private:
 
 public:
     // Costruttore oggetto
-    ShoppingItem(string nome, string categoria, int quantita);
+    ShoppingItem(const string &nome, const string &categoria, int quantita);
 
     // Visualizzazione oggetti
     void view();
@@ -28,6 +28,9 @@ public:
 
     // GETTER -> Quantità
     int getQuantita() const;
+
+    // SETTER -> Quantità
+    void setQuantita(int quantita);
 
 };
 

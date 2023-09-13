@@ -1,8 +1,9 @@
 #include "ShoppingItem.h"
 
 // Costruttore oggetto
-ShoppingItem::ShoppingItem(string nome, string categoria, int quantita) : nome(std::move(nome)), categoria(std::move(categoria)),quantita(quantita){}
-
+ShoppingItem::ShoppingItem(const string &nome, const string &categoria, int quantita) : nome(nome),
+                                                                                        categoria(categoria),
+                                                                                        quantita(quantita) {}
 // Visualizzazione oggetti
 void ShoppingItem::view(){
     cout<<"Nome: "<<nome<<endl;
@@ -25,3 +26,10 @@ const string &ShoppingItem::getCategoria() const {
 int ShoppingItem::getQuantita() const {
     return quantita;
 }
+
+// SETTER -> Quantità
+void ShoppingItem::setQuantita(int quantita) {
+    ShoppingItem::quantita = quantita;
+}
+
+
