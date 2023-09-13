@@ -1,5 +1,4 @@
 #include "gtest/gtest.h"
-
 #include "../ShoppingItem.h"
 
 TEST(ShoppingItem, DefaultConstructor) {
@@ -8,4 +7,3 @@ TEST(ShoppingItem, DefaultConstructor) {
     ASSERT_EQ("frutto",ogg.getCategoria());
     ASSERT_EQ(2,ogg.getQuantita());
 }
-

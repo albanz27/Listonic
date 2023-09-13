@@ -1,7 +1,3 @@
-//
-// Created by alban on 10/09/2023.
-//
-
 #ifndef LISTONIC_SHOPPINGITEM_H
 #define LISTONIC_SHOPPINGITEM_H
 
@@ -18,25 +14,21 @@ private:
     int quantita;
 
 public:
-    ShoppingItem(string  nome, string  categoria, int quantita);
+    // Costruttore oggetto
+    ShoppingItem(string nome, string categoria, int quantita);
 
+    // Visualizzazione oggetti
     void view();
 
-    const string &getNome() const {
-        return nome;
-    }
+    // GETTER -> Nome
+    const string &getNome() const;
 
-    const string &getCategoria() const {
-        return categoria;
-    }
+    // GETTER -> Categoria
+    const string &getCategoria() const;
 
-    int getQuantita() const {
-        return quantita;
-    }
-
-    void setQuantita(int quantita);
+    // GETTER -> Quantità
+    int getQuantita() const;
 
 };
-
 
 #endif //LISTONIC_SHOPPINGITEM_H

@@ -16,29 +16,17 @@ public:
     // Costruttore Utente
     explicit User(const string &n);
 
-    // Aggiungi lista all'utente
+    // Aggiungi lista utente
     void addLista(ShoppingList* lista);
 
-    // Rimuovi lista all'utente
+    // Rimuovi lista utente
     bool remLista(const string &n);
 
-    //visualizzazione liste utenti
+    // Visualizzazione liste utenti
     void view();
 
     // Aggiornamento cambiamenti di stato
     void update() ;//override
-
-    // Getter --> nome
-    const string &getNome() const;
-
-    // Setter --> nome
-    void setNome(const string &nome);
-
-    // Getter --> liste
-    const list<ShoppingList *> &getListe() const;
-
-    // Setter --> liste
-    void setListe(const list<ShoppingList *> &liste);
 
 };
 

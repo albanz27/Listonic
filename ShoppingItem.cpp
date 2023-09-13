@@ -1,21 +1,27 @@
-//
-// Created by alban on 10/09/2023.
-//
-
 #include "ShoppingItem.h"
 
+// Costruttore oggetto
 ShoppingItem::ShoppingItem(string nome, string categoria, int quantita) : nome(std::move(nome)), categoria(std::move(categoria)),quantita(quantita){}
 
-
+// Visualizzazione oggetti
 void ShoppingItem::view(){
     cout<<"Nome: "<<nome<<endl;
     cout<<"Categoria: "<<categoria<<endl;
     cout<<"Quantita': "<<quantita<<endl;
     cout<<"--------------------------------------------------"<<endl;
-
 }
 
-void ShoppingItem::setQuantita(int quantita) {
-    ShoppingItem::quantita = quantita;
+// GETTER -> Nome
+const string &ShoppingItem::getNome() const {
+    return nome;
 }
 
+// GETTER -> Categoria
+const string &ShoppingItem::getCategoria() const {
+    return categoria;
+}
+
+// GETTER -> Quantità
+int ShoppingItem::getQuantita() const {
+    return quantita;
+}

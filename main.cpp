@@ -3,7 +3,6 @@
 #include "ShoppingItem.h"
 #include "ShoppingList.h"
 #include "User.h"
-#include "Observer.h"
 
 using namespace std;
 
@@ -18,8 +17,6 @@ using namespace std;
  */
 
 int main() {
-    // INIZIO DEL COUT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
     // UTENTI
     User utente1("Alban");
     User utente2("Marco");
@@ -74,12 +71,15 @@ int main() {
     utente3.view();
     cout<<endl<<endl;
 
+    // rimozione oggetto
     lista1.removeOggetto("Latte");
+    // aumento quantità
     lista1.aumQuantita("Banana",20);
+    // diminuzione quantità
     lista1.dimQuantita("Orata",1);
     lista2.dimQuantita("Farina",4);
 
-
+    // visualizzazione tutte le liste di ciascun utente
     utente1.view();
     cout<<endl<<endl;
     utente2.view();
@@ -87,7 +87,7 @@ int main() {
     utente3.view();
     cout<<endl<<endl;
 
-    //rimozione lista spesa utente Alban
+    // rimozione lista grigliata utente Alban
     utente1.remLista("grigliata");
     utente1.view();
 
@@ -129,9 +129,6 @@ int main() {
             cin>>nLista;
             ShoppingList lista3(nLista);
         }
-
-
-
 
         fine = true;
     } while (fine == false);

@@ -1,11 +1,9 @@
-//
-// Created by alban on 11/09/2023.
-//
-
 #include "ShoppingList.h"
 
+// Costruttore lista
 ShoppingList::ShoppingList(const string &n) : nome(n) {}
 
+// Aggiunto oggetto
 void ShoppingList::addOggetto(const ShoppingItem &oggetto) {
     oggetti.push_back(oggetto);
     cout<<"Inserimento di '"<<oggetto.getNome()<<"' nella lista: "<<nome<<endl;
@@ -13,6 +11,7 @@ void ShoppingList::addOggetto(const ShoppingItem &oggetto) {
     cout<<endl;
 }
 
+// Rimozione oggetto
 bool ShoppingList::removeOggetto(const string &n) {
     for(auto itr=oggetti.begin();itr!=oggetti.end();itr++){
         if(itr->getNome()==n) {
@@ -26,21 +25,7 @@ bool ShoppingList::removeOggetto(const string &n) {
     return false;
 }
 
-void ShoppingList::play() const{
-    cout<<" | LISTA = "<<getNome()<<" | "<<endl;
-    for(auto oggetto:oggetti)
-        oggetto.view();
-}
-
-
-const string &ShoppingList::getNome() const {
-    return nome;
-}
-
-const list<ShoppingItem> &ShoppingList::getOggetti() const {
-    return oggetti;
-}
-
+// Aumento quantità
 bool ShoppingList::aumQuantita(const string &n, int q) {
     for(auto itr=oggetti.begin();itr!=oggetti.end();itr++){
         if(itr->getNome()==n) {
@@ -54,6 +39,7 @@ bool ShoppingList::aumQuantita(const string &n, int q) {
     return false;
 }
 
+// Diminuzione quantità
 bool ShoppingList::dimQuantita(const string &n, int q) {
     for(auto itr=oggetti.begin();itr!=oggetti.end();itr++){
         if(itr->getNome()==n) {
@@ -74,5 +60,17 @@ bool ShoppingList::dimQuantita(const string &n, int q) {
         }
     }
     return false;
+}
+
+// Visualizzazione lista
+void ShoppingList::play() const{
+    cout<<" | LISTA = "<<getNome()<<" | "<<endl;
+    for(auto oggetto:oggetti)
+        oggetto.view();
+}
+
+// GETTERE -> Nome
+const string &ShoppingList::getNome() const {
+    return nome;
 }
 
