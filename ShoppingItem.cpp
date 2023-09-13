@@ -11,7 +11,7 @@ void ShoppingItem::view(){
     cout<<"Nome: "<<nome<<endl;
     cout<<"Categoria: "<<categoria<<endl;
     cout<<"Quantita': "<<quantita<<endl;
-    cout<<"<--------------------------------------------------------->"<<endl;
+    cout<<"--------------------------------------------------"<<endl;
 
 }
 

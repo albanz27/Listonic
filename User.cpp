@@ -5,12 +5,13 @@ User::User(const string &n) : nome(n) {}
 void User::addLista(ShoppingList *lista) {
     liste.push_back(lista);
     lista->addObserver(this);
+    cout<<"Condivisione lista = "<<lista->getNome()<<" con utente '"<<nome<<"'"<<endl;
 }
 
 bool User::remLista(const string &n) {
     for(auto itr=liste.begin();itr!=liste.end();itr++){
         if((*itr)->getNome()==n) {
-            cout<<"Rimozione = "<<(*itr)->getNome()<<endl;
+            cout<<"Rimozione lista = "<<(*itr)->getNome()<<" dall'utente "<<nome<<endl;
             (*itr)->removeObserver(this);
             liste.erase(itr);
             return true;

@@ -8,15 +8,18 @@ ShoppingList::ShoppingList(const string &n) : nome(n) {}
 
 void ShoppingList::addOggetto(const ShoppingItem &oggetto) {
     oggetti.push_back(oggetto);
+    cout<<"Inserimento di '"<<oggetto.getNome()<<"' nella lista: "<<nome<<endl;
     notify();
+    cout<<endl;
 }
 
 bool ShoppingList::removeOggetto(const string &n) {
     for(auto itr=oggetti.begin();itr!=oggetti.end();itr++){
         if(itr->getNome()==n) {
-            cout<<"Rimozione = "<<itr->getNome()<<endl;
+            cout<<"Rimozione = "<<itr->getNome()<<" dalla lista '"<<nome<<"'"<<endl;
             oggetti.erase(itr);
             notify();
+            cout<<endl;
             return true;
         }
     }
@@ -24,7 +27,7 @@ bool ShoppingList::removeOggetto(const string &n) {
 }
 
 void ShoppingList::play() const{
-    cout<<"Lista = "<<getNome()<<endl;
+    cout<<" | LISTA = "<<getNome()<<" | "<<endl;
     for(auto oggetto:oggetti)
         oggetto.view();
 }
@@ -41,9 +44,10 @@ const list<ShoppingItem> &ShoppingList::getOggetti() const {
 bool ShoppingList::aumQuantita(const string &n, int q) {
     for(auto itr=oggetti.begin();itr!=oggetti.end();itr++){
         if(itr->getNome()==n) {
-             cout<<"Aumento = "<<itr->getNome()<<endl;
+             cout<<"Aumento = "<<itr->getNome()<<" (da '"<<itr->getQuantita()<<"' passa a '"<<itr->getQuantita()+q<<"')"<<endl;
              itr->setQuantita(itr->getQuantita()+q);
              notify();
+             cout<<endl;
              return true;
         }
     }
@@ -57,12 +61,14 @@ bool ShoppingList::dimQuantita(const string &n, int q) {
                 cout<<"Rimozione = "<<itr->getNome()<<endl;
                 oggetti.erase(itr);
                 notify();
+                cout<<endl;
                 return true;
             }
             else{
-                cout<<"Diminuzione = "<<itr->getNome()<<endl;
+                cout<<"Diminuzione = "<<itr->getNome()<<" (da '"<<itr->getQuantita()<<"' passa a '"<<itr->getQuantita()-q<<"')"<<endl;
                 itr->setQuantita(itr->getQuantita()-q);
                 notify();
+                cout<<endl;
                 return true;
             }
         }

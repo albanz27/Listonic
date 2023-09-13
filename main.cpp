@@ -18,79 +18,81 @@ using namespace std;
  */
 
 int main() {
+    // INIZIO DEL COUT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-   // string nomeOggetto, categoria;
-    //int quantita;
-    /* PROVA TASTIERA: INSERIMENTO OGGETTI
-    cout<<"Inserisci il nome dell'oggetto desiderato "<<endl;
-    cin>>nomeOggetto;
-    cout<<"Inserisci la categoria di "<<nome<<endl;
-    cin>>categoria;
-    cout<<"Inserisci la quantita' di "<<nome<<endl;
-    cin>>quantita;
-    ShoppingItem oggetto(nome,categoria,quantita);
-     */
-    /*ShoppingItem oggetto("BANANA","FRUTTA",2);
-    ShoppingItem oggetto2("tortellini","pasta",10);
-    ShoppingItem oggetto3("mela","FRUTTA",5);
-    ShoppingItem oggetto4("FARINA","IMPASTO",2);
-    ShoppingItem oggetto5("UOVA","PROTEINE",4);*/
-    /*  PROVA TASTIERA: INSERIMENTO OGGETTI NELLA LISTA
-    string nomeLista;
-    cout<<"Inserisci il nome della nuova lista"<<endl;
-    cin>>nomeLista;
-    ShoppingList lista(nomeLista);
-     */
-   /* ShoppingList lista("spesa");
-    ShoppingList lista2("merenda");
-    lista.addOggetto(oggetto);
-    lista.addOggetto(oggetto2);
-    lista.addOggetto(oggetto3);
-    lista.addOggetto(oggetto4);
-    lista2.addOggetto(oggetto2);
-    lista2.addOggetto(oggetto5);
-
-    lista.play();
-    cout<<endl<<endl;
-    lista2.play();
-    cout<<endl<<endl;*/
-
-    //lista.dimQuantita("tortellini",100);
-    //lista2.aumQuantita("tortellini",10);
-    /*
+    // UTENTI
     User utente1("Alban");
-    User utente2("Osman");
+    User utente2("Marco");
+    User utente3("Giacomo");
 
-    utente1.addLista(&lista);
+    // LISTE
+    ShoppingList lista1("spesa");
+    ShoppingList lista2("dolci");
+    ShoppingList lista3("grigliata");
+
+    // OGGETTI
+    ShoppingItem oggetto("Banana","FRUTTA",2);
+    ShoppingItem oggetto2("Orata","PESCE",3);
+    ShoppingItem oggetto3("Uova","UOVA",10);
+    ShoppingItem oggetto4("Farina","FARINA",3);
+    ShoppingItem oggetto5("Spiedino","CARNE",8);
+    ShoppingItem oggetto6("Bistecca","CARNE",6);
+    ShoppingItem oggetto7("Latte","LATTE",2);
+
+    // LISTE DI ALBAN
+    utente1.addLista(&lista1);
     utente1.addLista(&lista2);
-    utente2.addLista(&lista);
+    utente1.addLista(&lista3);
+
+    // LISTE DI MARCO
+    utente2.addLista(&lista2);
+
+    // LISTE DI GIACOMO
+    utente3.addLista(&lista1);
+
+    cout<<endl;
+
+    // OGGETTI LISTA 1: spesa
+    lista1.addOggetto(oggetto);
+    lista1.addOggetto(oggetto2);
+    lista1.addOggetto(oggetto7);
+
+    // OGGETTI LISTA 2: dolci
+    lista2.addOggetto(oggetto3);
+    lista2.addOggetto(oggetto4);
+    lista2.addOggetto(oggetto7);
+
+    // OGGETTI LISTA 3: grigliata
+    lista3.addOggetto(oggetto5);
+    lista3.addOggetto(oggetto6);
+
+    // visualizzazione tutte le liste di ciascun utente
+    utente1.view();
+    cout<<endl<<endl;
+    utente2.view();
+    cout<<endl<<endl;
+    utente3.view();
+    cout<<endl<<endl;
+
+    lista1.removeOggetto("Latte");
+    lista1.aumQuantita("Banana",20);
+    lista1.dimQuantita("Orata",1);
+    lista2.dimQuantita("Farina",4);
+
 
     utente1.view();
     cout<<endl<<endl;
     utente2.view();
     cout<<endl<<endl;
+    utente3.view();
+    cout<<endl<<endl;
 
-    lista.dimQuantita("tortellini",100);
-
-    utente1.remLista("spesa");
+    //rimozione lista spesa utente Alban
+    utente1.remLista("grigliata");
     utente1.view();
-    */
 
-    // INIZIO DEL COUT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    // UTENTI
-    User utente1("Alban");
-    User utente2("Marco");
-
-    // LISTE
-    ShoppingList lista1("spesa");
-    ShoppingList lista2("dolci");
-
-    // OGGETTI
-    ShoppingItem oggetto("Banana","FRUTTA",2);
-    ShoppingItem oggetto2("Paprika","SPEZIE",4);
-    ShoppingItem oggetto3("Orata","Pesce",1);
-
-    bool fine = false;
+    // Prova automazione
+/*    bool fine = false;
     do {
         // SELEZIONE UTENTE
         string op1="";
@@ -129,8 +131,13 @@ int main() {
         }
 
 
+
+
         fine = true;
     } while (fine == false);
+
+    FINE AUTOMAZIONE
+    */
 
     return 0;
 }
