@@ -1,5 +1,8 @@
 #include "ShoppingList.h"
 
+//Costruttore di default
+ShoppingList::ShoppingList() = default;
+
 // Costruttore lista
 ShoppingList::ShoppingList(const string &n) : nome(n) {}
 
@@ -74,3 +77,14 @@ const string &ShoppingList::getNome() const {
     return nome;
 }
 
+void ShoppingList::setNome(const string &nome) {
+    ShoppingList::nome = nome;
+}
+
+const list<ShoppingItem> &ShoppingList::getOggetti() const {
+    return oggetti;
+}
+
+void ShoppingList::setOggetti(const list<ShoppingItem> &oggetti) {
+    ShoppingList::oggetti = oggetti;
+}

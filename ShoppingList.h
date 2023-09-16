@@ -13,6 +13,8 @@ private:
     list<ShoppingItem> oggetti;
 
 public:
+    // Costruttore di default
+    ShoppingList();
     // Costruttore lista
     explicit ShoppingList(const string &n);
 
@@ -33,6 +35,12 @@ public:
 
     // GETTERE -> Nome
     const string &getNome() const;
+
+    void setNome(const string &nome);
+
+    const list <ShoppingItem> &getOggetti() const;
+
+    void setOggetti(const list <ShoppingItem> &oggetti);
 
 };
 

@@ -91,50 +91,5 @@ int main() {
     utente1.remLista("grigliata");
     utente1.view();
 
-    // Prova automazione
-/*    bool fine = false;
-    do {
-        // SELEZIONE UTENTE
-        string op1="";
-        do {
-            cout<<"DIGITA il NOME dell'utente da selezionare oppure DIGITA CREA per creare nuovo utente: "<<endl;
-            cout<<"Alban  -  Marco"<<endl;
-            cin>>op1;
-            if(op1!="Alban" && op1!="ALBAN" && op1!="alban" && op1!="Marco" && op1!="MARCO" && op1!="marco" && op1!="crea" && op1!="CREA" && op1!="Crea")
-                cout<<"ERRORE"<<endl<<endl;
-        } while ( op1!="Alban" && op1!="ALBAN" && op1!="alban" && op1!="Marco" && op1!="MARCO" && op1!="marco" && op1!="crea" && op1!="CREA" && op1!="Crea");
-
-        // CREAZIONE UTENTE
-        if(op1=="CREA" || op1=="Crea" || op1=="crea"){
-            string nUtente;
-            cout<<"INSERISCI nuovo nome utente"<<endl;
-            cin>>nUtente;
-            User utente3(nUtente);
-        }
-
-        // SELEZIONE LISTA
-        string op2="";
-        do {
-            cout<<"DIGITA il NOME della lista da selezionare oppure CREA per creare una nuova lista: "<<endl;
-            cout<<"spesa  -  dolci"<<endl;
-            cin>>op2;
-            if( op2!="spesa" && op2!="dolci" && op2!="crea" && op2!="CREA" && op2!="Crea" )
-                cout<<"ERRORE"<<endl<<endl;
-        } while ( op2!="spesa" && op2!="dolci" && op2!="crea" && op2!="CREA" && op2!="Crea" );
-
-        // CREAZIONE LISTA
-        if(op1=="CREA" || op1=="Crea" || op1=="crea"){
-            string nLista;
-            cout<<"INSERISCI nuovo nome lista"<<endl;
-            cin>>nLista;
-            ShoppingList lista3(nLista);
-        }
-
-        fine = true;
-    } while (fine == false);
-
-    FINE AUTOMAZIONE
-    */
-
     return 0;
 }
