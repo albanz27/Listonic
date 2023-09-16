@@ -40,6 +40,7 @@ bool ShoppingList::aumQuantita(const string &n, int q) {
              return true;
         }
     }
+    cout<<"Oggetto non esistente"<<endl<<endl;
     return false;
 }
 
@@ -63,6 +64,7 @@ bool ShoppingList::dimQuantita(const string &n, int q) {
             }
         }
     }
+    cout<<"Oggetto non esistente"<<endl<<endl;
     return false;
 }
 

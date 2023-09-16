@@ -38,5 +38,39 @@ TEST_F(ShoppingListFixture, Test_removeOggetto) {
     }
 
     // Provo a rimuovere un oggetto non esistente
-    ASSERT_FALSE(lista.removeOggetto("NonExistingItem"));
+    ASSERT_FALSE(lista.removeOggetto("nulla"));
+}
+
+// aumOggetto
+TEST_F(ShoppingListFixture, Test_aumOggetto) {
+    // Aumento la quantià di un oggetto
+    ASSERT_TRUE(lista.aumQuantita("Banana", 3));
+
+    // Controllo se la quantità è stata aumentata
+    const list<ShoppingItem>& oggetti = lista.getOggetti();
+    for (const auto& oggetto : oggetti) {
+        if (oggetto.getNome() == "Banana") {
+            ASSERT_EQ(5, oggetto.getQuantita());
+        }
+    }
+
+    // Provo ad aumentare la quantità di un oggetto non esistente
+    ASSERT_FALSE(lista.aumQuantita("nulla", 3));
+}
+
+// dimOggetto
+TEST_F(ShoppingListFixture, Test_dimOggetto) {
+    // Diminuisco la quantità di un oggetto
+    ASSERT_TRUE(lista.dimQuantita("Banana", 1));
+
+    // Controllo se la quantità è diminuita
+    const list<ShoppingItem>& oggetti = lista.getOggetti();
+    for (const auto& oggetto : oggetti) {
+        if (oggetto.getNome() == "Banana") {
+            ASSERT_EQ(1, oggetto.getQuantita());
+        }
+    }
+
+    // Provo a diminuire la quantità di un oggetto non esistente
+    ASSERT_FALSE(lista.dimQuantita("nulla", 1));
 }
