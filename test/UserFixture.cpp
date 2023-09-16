@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "../User.h"
+#include "../Observer.h"
 
 class UserFixture : public ::testing::Test {
 protected:
@@ -10,7 +11,15 @@ protected:
         ShoppingList lista("spesa");
         // Aggiungo la lista all'utente
         utente.addLista(&lista);
-    }};
+    }
+    void TearDown() override{
+        const list<ShoppingList*>& listeUtente = utente.getListe();
+        for (auto lista : listeUtente) {
+            delete lista;
+        }
+    }
+};
+
 
 // addLista
 TEST_F(UserFixture, Test_addLista) {
@@ -32,13 +41,13 @@ TEST_F(UserFixture, Test_remLista) {
     ASSERT_TRUE(utente.remLista("spesa"));
 
     // Controllo che la lista sia stata rimossa correttamente
-    const list<ShoppingList*>& liste = utente.getListe();
-    for (const auto& lista : liste) {
+    const list<ShoppingList*>& listeUtente = utente.getListe();
+    for (const auto& lista : listeUtente) {
         ASSERT_NE("spesa", lista->getNome());
     }
 
     // Prova a rimuovere una lista non esistente
-    //ASSERT_FALSE(utente.remLista("nulla"));
+    ASSERT_FALSE(utente.remLista("nulla"));
 }
 
 

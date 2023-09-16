@@ -31,12 +31,16 @@ public:
     // Aggiornamento cambiamenti di stato
     void update() override;
 
+    // GETTER Nome
     const string &getNome() const;
 
+    // SETTER Nome
     void setNome(const string &nome);
 
+    // GETTER Liste
     const list<ShoppingList *> &getListe() const;
 
+    // SETTER Liste
     void setListe(const list<ShoppingList *> &liste);
 
 };
