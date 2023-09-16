@@ -1,5 +1,8 @@
 #include "User.h"
 
+// Costruttore di default
+User::User() = default;
+
 // Costruttore Utente
 User::User(const string &n) : nome(n) {}
 
@@ -51,3 +54,4 @@ const list<ShoppingList *> &User::getListe() const {
 void User::setListe(const list<ShoppingList *> &liste) {
     User::liste = liste;
 }
+

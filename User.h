@@ -13,6 +13,9 @@ private:
     list<ShoppingList*> liste;
 
 public:
+    // Costruttore di default
+    User();
+
     // Costruttore Utente
     explicit User(const string &n);
 
@@ -26,7 +29,7 @@ public:
     void view();
 
     // Aggiornamento cambiamenti di stato
-    void update() ;//override
+    void update() override;
 
     const string &getNome() const;
 
