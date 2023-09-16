@@ -25,6 +25,7 @@ bool ShoppingList::removeOggetto(const string &n) {
             return true;
         }
     }
+    cout<<"Oggetto non esistente"<<endl<<endl;
     return false;
 }
 

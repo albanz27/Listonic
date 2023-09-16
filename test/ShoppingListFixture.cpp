@@ -6,16 +6,14 @@ protected:
     ShoppingList lista;
     void SetUp() override {
         lista.setNome("spesa");
+        // Inizializzo l'oggetto con il costruttore di ShopppingItem
+        ShoppingItem oggetto1("Banana", "FRUTTA", 2);
+        // Aggiungo l'oggetto alla lista
+        lista.addOggetto(oggetto1);
     }};
 
 // addOggetto
 TEST_F(ShoppingListFixture, Test_addOggetto){
-    // Inizializzo l'oggetto con il costruttore di ShopppingItem
-    ShoppingItem oggetto1("Banana", "FRUTTA", 2);
-
-    // Aggiungo l'oggetto alla lista
-    lista.addOggetto(oggetto1);
-
     // Uso il getter per accedere alla lista
     const list<ShoppingItem>& oggetti = lista.getOggetti();
 
@@ -28,3 +26,17 @@ TEST_F(ShoppingListFixture, Test_addOggetto){
     }
 }
 
+// removeOggetto
+TEST_F(ShoppingListFixture, Test_removeOggetto) {
+    // Rimuovo un oggetto dalla lista
+    ASSERT_TRUE(lista.removeOggetto("Banana"));
+
+    // Controllo se è stato rimosso dalla lista
+    const list<ShoppingItem>& oggetti = lista.getOggetti();
+    for (const auto& oggetto : oggetti) {
+        ASSERT_NE("Banana", oggetto.getNome());
+    }
+
+    // Provo a rimuovere un oggetto non esistente
+    ASSERT_FALSE(lista.removeOggetto("NonExistingItem"));
+}

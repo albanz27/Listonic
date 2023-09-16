@@ -73,6 +73,8 @@ int main() {
 
     // rimozione oggetto
     lista1.removeOggetto("Latte");
+    // rimozione oggetto non esistente
+    lista1.removeOggetto("limone");
     // aumento quantità
     lista1.aumQuantita("Banana",20);
     // diminuzione quantità
