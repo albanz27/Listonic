@@ -20,6 +20,7 @@ bool User::remLista(const string &n) {
             return true;
         }
     }
+    cout<<"Lista non esistete"<<endl<<endl;
     return false;
 }
 
@@ -33,4 +34,20 @@ void User::view() {
 // Aggiornamento cambiamenti di stato
 void User::update() {
     cout << "Utente " << nome << " e' stato notificato di un cambiamento della lista." <<endl;
+}
+
+const string &User::getNome() const {
+    return nome;
+}
+
+void User::setNome(const string &nome) {
+    User::nome = nome;
+}
+
+const list<ShoppingList *> &User::getListe() const {
+    return liste;
+}
+
+void User::setListe(const list<ShoppingList *> &liste) {
+    User::liste = liste;
 }

@@ -7,6 +7,7 @@ set(SOURCE_TEST_FILES runAllTests.cpp
         ShoppinItemTest.cpp
         ShoppingListTest.cpp
         ShoppingListFixture.cpp
+        UserTest.cpp
 )
 add_executable(runAllTests.cpp ${SOURCE_TEST_FILES})
 target_link_libraries(runAllTests.cpp gtest gtest_main core)

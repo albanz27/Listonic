@@ -28,6 +28,14 @@ public:
     // Aggiornamento cambiamenti di stato
     void update() ;//override
 
+    const string &getNome() const;
+
+    void setNome(const string &nome);
+
+    const list<ShoppingList *> &getListe() const;
+
+    void setListe(const list<ShoppingList *> &liste);
+
 };
 
 #endif //LISTONIC_USER_H
