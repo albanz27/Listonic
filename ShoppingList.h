@@ -34,16 +34,16 @@ public:
     // Visualizzazione lista
     void play() const;
 
-    // GETTERE -> Nome
+    // GETTER -> Nome
     const string &getNome() const;
 
-    // SETTERE -> Nome
+    // SETTER -> Nome
     void setNome(const string &nome);
 
-    // GETTERE -> Lista
+    // GETTER -> Lista di oggetti
     const list <ShoppingItem> &getOggetti() const;
 
-    // SETTERE -> Lista
+    // SETTER -> Lista di oggetti
     void setOggetti(const list <ShoppingItem> &oggetti);
 
 };

@@ -39,18 +39,22 @@ void User::update() {
     cout << "Utente " << nome << " e' stato notificato di un cambiamento della lista." <<endl;
 }
 
+// GETTER -> Nome
 const string &User::getNome() const {
     return nome;
 }
 
+// SETTER -> Nome
 void User::setNome(const string &nome) {
     User::nome = nome;
 }
 
+// GETTER -> Lista di liste
 const list<ShoppingList *> &User::getListe() const {
     return liste;
 }
 
+// SETTER -> Lista di liste
 void User::setListe(const list<ShoppingList *> &liste) {
     User::liste = liste;
 }

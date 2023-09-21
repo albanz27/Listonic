@@ -37,10 +37,10 @@ public:
     // SETTER Nome
     void setNome(const string &nome);
 
-    // GETTER Liste
+    // GETTER Lista di liste
     const list<ShoppingList *> &getListe() const;
 
-    // SETTER Liste
+    // SETTER Lista di liste
     void setListe(const list<ShoppingList *> &liste);
 
 };

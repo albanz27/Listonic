@@ -75,19 +75,22 @@ void ShoppingList::play() const{
         oggetto.view();
 }
 
-// GETTERE -> Nome
+// GETTER -> Nome
 const string &ShoppingList::getNome() const {
     return nome;
 }
 
+// SETTER -> Nome
 void ShoppingList::setNome(const string &nome) {
     ShoppingList::nome = nome;
 }
 
+// GETTER -> Lista di oggetti
 const list<ShoppingItem> &ShoppingList::getOggetti() const {
     return oggetti;
 }
 
+// SETTER -> Lista di oggetti
 void ShoppingList::setOggetti(const list<ShoppingItem> &oggetti) {
     ShoppingList::oggetti = oggetti;
 }
