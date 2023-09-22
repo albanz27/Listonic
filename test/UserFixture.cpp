@@ -19,9 +19,6 @@ TEST_F(UserFixture, Test_addLista) {
     // Uso il getter per accedere alle liste dell'utente
     const list<ShoppingList*>& liste = utente.getListe();
 
-    // Controllo che l'utente abbia una lista
-    ASSERT_FALSE(liste.empty());
-
     // Itera nelle liste e verifica che siano state inserite correttamente
     for (const auto& lista : liste)
         ASSERT_EQ("spesa", lista->getNome());

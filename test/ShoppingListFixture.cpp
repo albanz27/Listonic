@@ -19,7 +19,6 @@ TEST_F(ShoppingListFixture, Test_addOggetto){
 
     // Itero nella lista e controllo che sia stato inserito correttamente
     for (const auto& oggetto : oggetti) {
-        // Add assertions for the properties of 'oggetto' (ShoppingItem)
         ASSERT_EQ("Banana", oggetto.getNome());
         ASSERT_EQ("FRUTTA", oggetto.getCategoria());
         ASSERT_EQ(2, oggetto.getQuantita());
@@ -34,6 +33,7 @@ TEST_F(ShoppingListFixture, Test_removeOggetto) {
     // Controllo se è stato rimosso dalla lista
     const list<ShoppingItem>& oggetti = lista.getOggetti();
     for (const auto& oggetto : oggetti) {
+        // Assert_ne controlla che i due parametri sono diversi
         ASSERT_NE("Banana", oggetto.getNome());
     }
 
