@@ -10,7 +10,6 @@ using namespace std;
 class ShoppingList: public Subject {
 private:
     string nome;
-    list<ShoppingItem> oggetti;
 
 public:
     // Costruttore lista
@@ -47,8 +46,8 @@ public:
     // SETTER -> Nome
     void setNome(const string &nome);
 
-
-
+    // oggetti pubblico perchè mi serve per stampare gli oggetti su update
+    list<ShoppingItem> oggetti;
 };
 
 #endif //LISTONIC_SHOPPINGLIST_H

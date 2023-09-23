@@ -13,9 +13,6 @@ private:
     list<ShoppingList*> liste;
 
 public:
-    // Costruttore di default
-    User();
-
     // Costruttore Utente
     explicit User(const string &n);
 
@@ -36,10 +33,6 @@ public:
 
     // SETTER Nome
     void setNome(const string &nome);
-
-    // GETTER Lista di liste
-    const list<ShoppingList *> &getListe() const;
-
 
 
 };

@@ -31,12 +31,11 @@ bool ShoppingList::stateObject(const string &n, bool a) {
     for (auto itr = oggetti.begin(); itr != oggetti.end(); itr++) {
         if (itr->getNome() == n) {
             itr->setAcquistato(a);
-            notify();
             if (a)
                 cout << "Oggetto " << itr->getNome() << " e' contrassegnato come acquistato" << endl;
             else
                 cout << "Oggetto " << itr->getNome() << " e' contrassegnato come non acquistato" << endl;
-            cout << endl;
+            notify();
             return true;
         }
     }
@@ -65,7 +64,7 @@ bool ShoppingList::modQuantity(const string &n, int q, bool dec) {
                     return true;
                 }
                 else
-                    cout<<"la quantita' inserita e' troppo grande"<<endl;
+                    cout<<"la quantita' inserita e' troppo grande"<<endl<<endl;
             }
 
         }

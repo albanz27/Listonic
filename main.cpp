@@ -64,12 +64,16 @@ int main() {
     lista3.addObject(oggetto6);
 
     // visualizzazione tutte le liste di ciascun utente
+    /*
     utente1.view();
     cout<<endl<<endl;
     utente2.view();
     cout<<endl<<endl;
     utente3.view();
     cout<<endl<<endl;
+    */
+
+    cout<<"---------------------------------------------------------------------------------------"<<endl<<endl<<endl;
 
     // rimozione oggetto
     lista1.removeObject("Latte");
@@ -80,14 +84,17 @@ int main() {
     // diminuzione quantità
     lista1.modQuantity("Orata",1, false);
     lista2.modQuantity("Farina",4, false);
+    lista1.stateObject("Banana", true);
 
     // visualizzazione tutte le liste di ciascun utente
+    /*
     utente1.view();
     cout<<endl<<endl;
     utente2.view();
     cout<<endl<<endl;
     utente3.view();
     cout<<endl<<endl;
+    */
 
     // rimozione lista grigliata utente Alban
     utente1.remLista("grigliata");

@@ -1,8 +1,5 @@
 #include "User.h"
 
-// Costruttore di default
-User::User() = default;
-
 // Costruttore Utente
 User::User(const string &n) : nome(n) {}
 
@@ -18,7 +15,7 @@ bool User::remLista(const string &n) {
     for(auto itr=liste.begin();itr!=liste.end();itr++){
         if((*itr)->getNome()==n) {
             cout<<"Rimozione lista = "<<(*itr)->getNome()<<" dall'utente "<<nome<<endl;
-            //(*itr)->removeObserver(this);
+            (*itr)->removeObserver(this);
             liste.erase(itr);
             return true;
         }
@@ -36,9 +33,34 @@ void User::view() {
 
 // Aggiornamento cambiamenti di stato
 void User::update() {
-    cout << "Utente " << nome << " e' stato notificato di un cambiamento della lista." <<endl;
-    //mostra gli oggetti da acquistare e quelli acquistati
+    cout<<"Notifica per utente "<<getNome()<<endl;
+    // stampa oggetti da acquistare numerati
+    for (auto lista : liste) {
+        int conta = 0;
+        if(!lista->oggetti.empty())
+            cout <<"Lista: " << lista->getNome() <<" oggetti da acquistare"<< endl;
+        for (const auto& oggetto : lista->oggetti) {
+            if (!oggetto.isAcquistato()) {
+                conta++;
+                cout << conta<<") " << oggetto.getNome() << endl;
+            }
+        }
+    }
+    // stampa oggetti acquistati numerati
+    for (auto lista : liste) {
+        int conta = 0;
+        for (const auto& oggetto : lista->oggetti) {
+            if (oggetto.isAcquistato()) {
+                if(conta==0)
+                    cout <<"Lista: " << lista->getNome() <<" oggetti acquistati"<< endl;
+                conta++;
+                cout << conta<<") " << oggetto.getNome() << endl;
+            }
+        }
+    }
+    cout<<endl;
 }
+
 
 // GETTER -> Nome
 const string &User::getNome() const {
@@ -49,10 +71,3 @@ const string &User::getNome() const {
 void User::setNome(const string &nome) {
     User::nome = nome;
 }
-
-// GETTER -> Lista di liste
-const list<ShoppingList *> &User::getListe() const {
-    return liste;
-}
-
-
