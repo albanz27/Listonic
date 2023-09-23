@@ -23,7 +23,7 @@ public:
     bool removeObject(const string &n);
 
     // Acquista oggetto
-    bool BuyObject(const string &n, bool a);
+    bool stateObject(const string &n, bool a);
 
     // Modifica quantità
     bool modQuantity(const string &n, int q, bool dec);

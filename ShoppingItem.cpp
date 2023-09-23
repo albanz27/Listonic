@@ -26,5 +26,13 @@ void ShoppingItem::setQuantita(int quantita) {
     ShoppingItem::quantita = quantita;
 }
 
+bool ShoppingItem::isAcquistato() const {
+    return acquistato;
+}
+
+void ShoppingItem::setAcquistato(bool acquistato) {
+    ShoppingItem::acquistato = acquistato;
+}
+
 
 

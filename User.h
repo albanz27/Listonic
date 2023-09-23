@@ -40,8 +40,7 @@ public:
     // GETTER Lista di liste
     const list<ShoppingList *> &getListe() const;
 
-    // SETTER Lista di liste
-    void setListe(const list<ShoppingList *> &liste);
+
 
 };
 

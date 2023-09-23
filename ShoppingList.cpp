@@ -27,26 +27,39 @@ bool ShoppingList::removeObject(const string &n) {
 }
 
 // Acquista oggetto
-bool ShoppingList::BuyObject(const string &n, bool a) {
+bool ShoppingList::stateObject(const string &n, bool a) {
+    for (auto itr = oggetti.begin(); itr != oggetti.end(); itr++) {
+        if (itr->getNome() == n) {
+            itr->setAcquistato(a);
+            notify();
+            if (a)
+                cout << "Oggetto " << itr->getNome() << " e' contrassegnato come acquistato" << endl;
+            else
+                cout << "Oggetto " << itr->getNome() << " e' contrassegnato come non acquistato" << endl;
+            cout << endl;
+            return true;
+        }
+    }
+    cout<<"Oggetto non esistente"<<endl<<endl;
     return false;
 }
 
 // Modifica quantità
 bool ShoppingList::modQuantity(const string &n, int q, bool dec) {
-    for(auto itr=oggetti.begin();itr!=oggetti.end();itr++){
-        if(itr->getNome()==n) {
+    for(auto & itr : oggetti){
+        if(itr.getNome()==n) {
             // se dec è vero allora aumenta quantità altrimenti diminuisce
             if(dec){
-                cout<<"Aumento = "<<itr->getNome()<<" (da '"<<itr->getQuantita()<<"' passa a '"<<itr->getQuantita()+q<<"')"<<endl;
-                itr->setQuantita(itr->getQuantita()+q);
+                cout<<"Aumento = "<<itr.getNome()<<" (da '"<<itr.getQuantita()<<"' passa a '"<<itr.getQuantita()+q<<"')"<<endl;
+                itr.setQuantita(itr.getQuantita()+q);
                 notify();
                 cout<<endl;
                 return true;
             }
             else{
-                if(itr->getQuantita()>q){
-                    cout<<"Diminuzione = "<<itr->getNome()<<" (da '"<<itr->getQuantita()<<"' passa a '"<<itr->getQuantita()-q<<"')"<<endl;
-                    itr->setQuantita(itr->getQuantita()-q);
+                if(itr.getQuantita()>q){
+                    cout<<"Diminuzione = "<<itr.getNome()<<" (da '"<<itr.getQuantita()<<"' passa a '"<<itr.getQuantita()-q<<"')"<<endl;
+                    itr.setQuantita(itr.getQuantita()-q);
                     notify();
                     cout<<endl;
                     return true;

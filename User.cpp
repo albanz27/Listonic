@@ -37,6 +37,7 @@ void User::view() {
 // Aggiornamento cambiamenti di stato
 void User::update() {
     cout << "Utente " << nome << " e' stato notificato di un cambiamento della lista." <<endl;
+    //mostra gli oggetti da acquistare e quelli acquistati
 }
 
 // GETTER -> Nome
@@ -54,8 +55,4 @@ const list<ShoppingList *> &User::getListe() const {
     return liste;
 }
 
-// SETTER -> Lista di liste
-void User::setListe(const list<ShoppingList *> &liste) {
-    User::liste = liste;
-}
 

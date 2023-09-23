@@ -76,10 +76,10 @@ int main() {
     // rimozione oggetto non esistente
     lista1.removeObject("limone");
     // aumento quantità
-    lista1.modQuantity("Banana", 20);
+    lista1.modQuantity("Banana", 20, true);
     // diminuzione quantità
-    lista1.dimQuantita("Orata",1);
-    lista2.dimQuantita("Farina",4);
+    lista1.modQuantity("Orata",1, false);
+    lista2.modQuantity("Farina",4, false);
 
     // visualizzazione tutte le liste di ciascun utente
     utente1.view();

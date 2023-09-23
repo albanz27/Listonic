@@ -30,6 +30,10 @@ public:
     // SETTER -> Quantità
     void setQuantita(int quantita);
 
+    bool isAcquistato() const;
+
+    void setAcquistato(bool acquistato);
+
 };
 
 #endif //LISTONIC_SHOPPINGITEM_H
