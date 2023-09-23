@@ -16,7 +16,7 @@ private:
 
 public:
     // Costruttore oggetto
-    ShoppingItem(const string &nome, const string &categoria, int quantita, bool acquistato);
+    ShoppingItem(const string &nome, const string &categoria, int quantita);
 
     // GETTER -> Nome
     const string &getNome() const;

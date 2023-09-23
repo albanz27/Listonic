@@ -17,10 +17,13 @@ public:
     explicit ShoppingList(const string &n);
 
     // Aggiunto oggetto
-    void addOggetto(const ShoppingItem &oggetto);
+    void addObject(const ShoppingItem &oggetto);
 
     // Rimozione oggetto
-    bool removeOggetto(const string &n);
+    bool removeObject(const string &n);
+
+    // Acquista oggetto
+    bool BuyObject(const string &n, bool a);
 
     // Aumento quantità
     bool aumQuantita(const string &n, int q);
@@ -31,17 +34,23 @@ public:
     // Visualizzazione lista
     void show() const;
 
-    // GETTER -> Nome
+    // Aggiunge Observer
+    void addObserver(Observer* observer) override;
+
+    // Rimuove Observer
+    void removeObserver(Observer* observer) override;
+
+    // Notifica cambiamento
+    void notify() override;
+
+
+        // GETTER -> Nome
     const string &getNome() const;
 
     // SETTER -> Nome
     void setNome(const string &nome);
 
-    // GETTER -> Lista di oggetti
-    const list <ShoppingItem> &getOggetti() const;
 
-    // SETTER -> Lista di oggetti
-    void setOggetti(const list <ShoppingItem> &oggetti);
 
 };
 

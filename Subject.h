@@ -10,19 +10,11 @@ protected:
     list<Observer*> observers;
 
 public:
-    void addObserver(Observer* observer) {
-        observers.push_back(observer);
-    }
+    virtual void addObserver(Observer* observer) = 0;
 
-    void removeObserver(Observer* observer) {
-        observers.remove(observer);
-    }
+    virtual void removeObserver(Observer* observer) = 0;
 
-    void notify() {
-        for (Observer* observer : observers) {
-            observer->update();
-        }
-    }
+    virtual void notify() = 0;
 };
 
 #endif //LISTONIC_SUBJECT_H

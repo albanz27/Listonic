@@ -50,18 +50,18 @@ int main() {
     cout<<endl;
 
     // OGGETTI LISTA 1: spesa
-    lista1.addOggetto(oggetto);
-    lista1.addOggetto(oggetto2);
-    lista1.addOggetto(oggetto7);
+    lista1.addObject(oggetto);
+    lista1.addObject(oggetto2);
+    lista1.addObject(oggetto7);
 
     // OGGETTI LISTA 2: dolci
-    lista2.addOggetto(oggetto3);
-    lista2.addOggetto(oggetto4);
-    lista2.addOggetto(oggetto7);
+    lista2.addObject(oggetto3);
+    lista2.addObject(oggetto4);
+    lista2.addObject(oggetto7);
 
     // OGGETTI LISTA 3: grigliata
-    lista3.addOggetto(oggetto5);
-    lista3.addOggetto(oggetto6);
+    lista3.addObject(oggetto5);
+    lista3.addObject(oggetto6);
 
     // visualizzazione tutte le liste di ciascun utente
     utente1.view();
@@ -72,9 +72,9 @@ int main() {
     cout<<endl<<endl;
 
     // rimozione oggetto
-    lista1.removeOggetto("Latte");
+    lista1.removeObject("Latte");
     // rimozione oggetto non esistente
-    lista1.removeOggetto("limone");
+    lista1.removeObject("limone");
     // aumento quantità
     lista1.aumQuantita("Banana",20);
     // diminuzione quantità

@@ -4,7 +4,7 @@
 ShoppingList::ShoppingList(const string &n) : nome(n) {}
 
 // Aggiunto oggetto
-void ShoppingList::addOggetto(const ShoppingItem &oggetto) {
+void ShoppingList::addObject(const ShoppingItem &oggetto) {
     oggetti.push_back(oggetto);
     cout<<"Inserimento di '"<<oggetto.getNome()<<"' nella lista: "<<nome<<endl;
     notify();
@@ -12,7 +12,7 @@ void ShoppingList::addOggetto(const ShoppingItem &oggetto) {
 }
 
 // Rimozione oggetto
-bool ShoppingList::removeOggetto(const string &n) {
+bool ShoppingList::removeObject(const string &n) {
     for(auto itr=oggetti.begin();itr!=oggetti.end();itr++){
         if(itr->getNome()==n) {
             cout<<"Rimozione = "<<itr->getNome()<<" dalla lista '"<<nome<<"'"<<endl;
@@ -23,6 +23,11 @@ bool ShoppingList::removeOggetto(const string &n) {
         }
     }
     cout<<"Oggetto non esistente"<<endl<<endl;
+    return false;
+}
+
+// Acquista oggetto
+bool ShoppingList::BuyObject(const string &n, bool a) {
     return false;
 }
 
@@ -68,8 +73,8 @@ bool ShoppingList::dimQuantita(const string &n, int q) {
 // Visualizzazione lista
 void ShoppingList::show() const{
     cout<<" | LISTA = "<<getNome()<<" | "<<endl;
-    for(auto oggetto:oggetti)
-        oggetto.view();
+    /*for(auto oggetto:oggetti)
+        oggetto.view();*/
 }
 
 // GETTER -> Nome
@@ -82,12 +87,21 @@ void ShoppingList::setNome(const string &nome) {
     ShoppingList::nome = nome;
 }
 
-// GETTER -> Lista di oggetti
-const list<ShoppingItem> &ShoppingList::getOggetti() const {
-    return oggetti;
+// Aggiunge Observer
+void ShoppingList::addObserver(Observer *observer) {
+    observers.push_back(observer);
 }
 
-// SETTER -> Lista di oggetti
-void ShoppingList::setOggetti(const list<ShoppingItem> &oggetti) {
-    ShoppingList::oggetti = oggetti;
+// Rimuove Observer
+void ShoppingList::removeObserver(Observer *observer) {
+    observers.remove(observer);
 }
+
+// Notifica cambiamento
+void ShoppingList::notify() {
+    for (Observer* observer : observers) {
+        observer->update();
+    }
+}
+
+

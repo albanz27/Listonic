@@ -9,10 +9,10 @@ protected:
         // Inizializzo l'oggetto con il costruttore di ShopppingItem
         ShoppingItem oggetto1("Banana", "FRUTTA", 2);
         // Aggiungo l'oggetto alla lista
-        lista.addOggetto(oggetto1);
+        lista.addObject(oggetto1);
     }};
 
-// addOggetto
+// addObject
 TEST_F(ShoppingListFixture, Test_addOggetto){
     // Uso il getter per accedere alla lista
     const list<ShoppingItem>& oggetti = lista.getOggetti();
@@ -25,10 +25,10 @@ TEST_F(ShoppingListFixture, Test_addOggetto){
     }
 }
 
-// removeOggetto
+// removeObject
 TEST_F(ShoppingListFixture, Test_removeOggetto) {
     // Rimuovo un oggetto dalla lista
-    ASSERT_TRUE(lista.removeOggetto("Banana"));
+    ASSERT_TRUE(lista.removeObject("Banana"));
 
     // Controllo se è stato rimosso dalla lista
     const list<ShoppingItem>& oggetti = lista.getOggetti();
@@ -38,7 +38,7 @@ TEST_F(ShoppingListFixture, Test_removeOggetto) {
     }
 
     // Provo a rimuovere un oggetto non esistente
-    ASSERT_FALSE(lista.removeOggetto("nulla"));
+    ASSERT_FALSE(lista.removeObject("nulla"));
 }
 
 // aumOggetto

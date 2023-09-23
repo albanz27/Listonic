@@ -1,10 +1,10 @@
 #include "ShoppingItem.h"
 
 // Costruttore oggetto
-ShoppingItem::ShoppingItem(const string &nome, const string &categoria, int quantita, bool acquistato) : nome(nome),categoria(categoria),
-                                                                                                         quantita(quantita),
-                                                                                                         acquistato(acquistato) {}
-
+ShoppingItem::ShoppingItem(const string &nome, const string &categoria, int quantita) : nome(nome),
+                                                                                        categoria(categoria),
+                                                                                        quantita(quantita),
+                                                                                        acquistato(false) {}
 
 // GETTER -> Nome
 const string &ShoppingItem::getNome() const {
