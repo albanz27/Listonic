@@ -1,8 +1,5 @@
 #include "ShoppingList.h"
 
-//Costruttore di default
-ShoppingList::ShoppingList() = default;
-
 // Costruttore lista
 ShoppingList::ShoppingList(const string &n) : nome(n) {}
 
@@ -69,7 +66,7 @@ bool ShoppingList::dimQuantita(const string &n, int q) {
 }
 
 // Visualizzazione lista
-void ShoppingList::play() const{
+void ShoppingList::show() const{
     cout<<" | LISTA = "<<getNome()<<" | "<<endl;
     for(auto oggetto:oggetti)
         oggetto.view();

@@ -13,9 +13,6 @@ private:
     list<ShoppingItem> oggetti;
 
 public:
-    // Costruttore di default
-    ShoppingList();
-
     // Costruttore lista
     explicit ShoppingList(const string &n);
 
@@ -32,7 +29,7 @@ public:
     bool dimQuantita(const string &n, int q);
 
     // Visualizzazione lista
-    void play() const;
+    void show() const;
 
     // GETTER -> Nome
     const string &getNome() const;

@@ -12,13 +12,11 @@ private:
     string nome;
     string categoria;
     int quantita;
+    bool acquistato;
 
 public:
     // Costruttore oggetto
-    ShoppingItem(const string &nome, const string &categoria, int quantita);
-
-    // Visualizzazione oggetti
-    void view();
+    ShoppingItem(const string &nome, const string &categoria, int quantita, bool acquistato);
 
     // GETTER -> Nome
     const string &getNome() const;

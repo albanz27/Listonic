@@ -31,7 +31,7 @@ bool User::remLista(const string &n) {
 void User::view() {
     cout<<"Utente "<<nome<<", visualizzazione liste ->"<<endl;
     for(auto lista:liste)
-        lista->play();
+        lista->show();
 }
 
 // Aggiornamento cambiamenti di stato

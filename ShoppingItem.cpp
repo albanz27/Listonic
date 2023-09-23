@@ -1,16 +1,10 @@
 #include "ShoppingItem.h"
 
 // Costruttore oggetto
-ShoppingItem::ShoppingItem(const string &nome, const string &categoria, int quantita) : nome(nome),
-                                                                                        categoria(categoria),
-                                                                                        quantita(quantita) {}
-// Visualizzazione oggetti
-void ShoppingItem::view(){
-    cout<<"Nome: "<<nome<<endl;
-    cout<<"Categoria: "<<categoria<<endl;
-    cout<<"Quantita': "<<quantita<<endl;
-    cout<<"--------------------------------------------------"<<endl;
-}
+ShoppingItem::ShoppingItem(const string &nome, const string &categoria, int quantita, bool acquistato) : nome(nome),categoria(categoria),
+                                                                                                         quantita(quantita),
+                                                                                                         acquistato(acquistato) {}
+
 
 // GETTER -> Nome
 const string &ShoppingItem::getNome() const {
@@ -31,5 +25,6 @@ int ShoppingItem::getQuantita() const {
 void ShoppingItem::setQuantita(int quantita) {
     ShoppingItem::quantita = quantita;
 }
+
 
 
