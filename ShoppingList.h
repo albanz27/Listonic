@@ -25,11 +25,8 @@ public:
     // Acquista oggetto
     bool BuyObject(const string &n, bool a);
 
-    // Aumento quantità
-    bool aumQuantita(const string &n, int q);
-
-    // Diminuzione quantità
-    bool dimQuantita(const string &n, int q);
+    // Modifica quantità
+    bool modQuantity(const string &n, int q, bool dec);
 
     // Visualizzazione lista
     void show() const;
@@ -44,7 +41,7 @@ public:
     void notify() override;
 
 
-        // GETTER -> Nome
+    // GETTER -> Nome
     const string &getNome() const;
 
     // SETTER -> Nome

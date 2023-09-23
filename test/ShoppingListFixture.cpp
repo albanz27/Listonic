@@ -44,7 +44,7 @@ TEST_F(ShoppingListFixture, Test_removeOggetto) {
 // aumOggetto
 TEST_F(ShoppingListFixture, Test_aumOggetto) {
     // Aumento la quantià di un oggetto
-    ASSERT_TRUE(lista.aumQuantita("Banana", 3));
+    ASSERT_TRUE(lista.modQuantity("Banana", 3));
 
     // Controllo se la quantità è stata aumentata
     const list<ShoppingItem>& oggetti = lista.getOggetti();
@@ -55,7 +55,7 @@ TEST_F(ShoppingListFixture, Test_aumOggetto) {
     }
 
     // Provo ad aumentare la quantità di un oggetto non esistente
-    ASSERT_FALSE(lista.aumQuantita("nulla", 3));
+    ASSERT_FALSE(lista.modQuantity("nulla", 3));
 }
 
 // dimOggetto

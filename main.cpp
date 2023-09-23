@@ -76,7 +76,7 @@ int main() {
     // rimozione oggetto non esistente
     lista1.removeObject("limone");
     // aumento quantità
-    lista1.aumQuantita("Banana",20);
+    lista1.modQuantity("Banana", 20);
     // diminuzione quantità
     lista1.dimQuantita("Orata",1);
     lista2.dimQuantita("Farina",4);

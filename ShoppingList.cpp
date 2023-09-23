@@ -31,39 +31,30 @@ bool ShoppingList::BuyObject(const string &n, bool a) {
     return false;
 }
 
-// Aumento quantità
-bool ShoppingList::aumQuantita(const string &n, int q) {
+// Modifica quantità
+bool ShoppingList::modQuantity(const string &n, int q, bool dec) {
     for(auto itr=oggetti.begin();itr!=oggetti.end();itr++){
         if(itr->getNome()==n) {
-             cout<<"Aumento = "<<itr->getNome()<<" (da '"<<itr->getQuantita()<<"' passa a '"<<itr->getQuantita()+q<<"')"<<endl;
-             itr->setQuantita(itr->getQuantita()+q);
-             notify();
-             cout<<endl;
-             return true;
-        }
-    }
-    cout<<"Oggetto non esistente"<<endl<<endl;
-    return false;
-}
-
-// Diminuzione quantità
-bool ShoppingList::dimQuantita(const string &n, int q) {
-    for(auto itr=oggetti.begin();itr!=oggetti.end();itr++){
-        if(itr->getNome()==n) {
-            if(itr->getQuantita()<=q) {
-                cout<<"Rimozione = "<<itr->getNome()<<endl;
-                oggetti.erase(itr);
+            // se dec è vero allora aumenta quantità altrimenti diminuisce
+            if(dec){
+                cout<<"Aumento = "<<itr->getNome()<<" (da '"<<itr->getQuantita()<<"' passa a '"<<itr->getQuantita()+q<<"')"<<endl;
+                itr->setQuantita(itr->getQuantita()+q);
                 notify();
                 cout<<endl;
                 return true;
             }
             else{
-                cout<<"Diminuzione = "<<itr->getNome()<<" (da '"<<itr->getQuantita()<<"' passa a '"<<itr->getQuantita()-q<<"')"<<endl;
-                itr->setQuantita(itr->getQuantita()-q);
-                notify();
-                cout<<endl;
-                return true;
+                if(itr->getQuantita()>q){
+                    cout<<"Diminuzione = "<<itr->getNome()<<" (da '"<<itr->getQuantita()<<"' passa a '"<<itr->getQuantita()-q<<"')"<<endl;
+                    itr->setQuantita(itr->getQuantita()-q);
+                    notify();
+                    cout<<endl;
+                    return true;
+                }
+                else
+                    cout<<"la quantita' inserita e' troppo grande"<<endl;
             }
+
         }
     }
     cout<<"Oggetto non esistente"<<endl<<endl;
