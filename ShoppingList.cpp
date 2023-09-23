@@ -77,8 +77,17 @@ bool ShoppingList::modQuantity(const string &n, int q, bool dec) {
 // Visualizzazione lista
 void ShoppingList::show() const{
     cout<<" | LISTA = "<<getNome()<<" | "<<endl;
-    /*for(auto oggetto:oggetti)
-        oggetto.view();*/
+    for(const auto& oggetto:oggetti){
+        cout<<" nome = '"<<oggetto.getNome()<<"'"<<endl;
+        cout<<" categoria = '"<<oggetto.getCategoria()<<"'"<<endl;
+        cout<<" quantita' = '"<<oggetto.getQuantita()<<"'"<<endl;
+        cout<<" stato = '";
+        if(oggetto.isAcquistato())
+            cout<<" ACQUISTATO' ";
+        else
+            cout<<" NON ACQUISTATO' ";
+        cout<<endl<<endl;
+    }
 }
 
 // GETTER -> Nome
