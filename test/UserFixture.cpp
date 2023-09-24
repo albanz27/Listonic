@@ -9,6 +9,13 @@ protected:
     void SetUp() override {
         utente1.addLista(&lista1);
     }
+
+    void TearDown() override {
+        while (!utente1.liste.empty()) {
+            const string nLista = utente1.liste.front()->getNome();
+            utente1.remLista(nLista);
+        }
+    }
 };
 
 // addLista
