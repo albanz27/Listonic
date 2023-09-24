@@ -15,7 +15,7 @@ bool User::remLista(const string &n) {
     for(auto itr=liste.begin();itr!=liste.end();itr++){
         if((*itr)->getNome()==n) {
             cout<<"Rimozione lista = "<<(*itr)->getNome()<<" dall'utente "<<nome<<endl;
-            (*itr)->removeObserver(this);
+            //(*itr)->removeObserver(this);
             liste.erase(itr);
             return true;
         }
