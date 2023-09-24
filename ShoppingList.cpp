@@ -63,8 +63,10 @@ bool ShoppingList::modQuantity(const string &n, int q, bool dec) {
                     cout<<endl;
                     return true;
                 }
-                else
-                    cout<<"la quantita' inserita e' troppo grande"<<endl<<endl;
+                else {
+                    cout << "la quantita' inserita e' troppo grande" << endl << endl;
+                    return false;
+                }
             }
 
         }

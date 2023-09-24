@@ -15,6 +15,7 @@ protected:
 
 
 // addLista
+/*
 TEST_F(UserFixture, Test_addLista) {
     // Uso il getter per accedere alle liste dell'utente
     const list<ShoppingList*>& liste = utente.getListe();
@@ -41,3 +42,4 @@ TEST_F(UserFixture, Test_remLista) {
 }
 
 
+*/

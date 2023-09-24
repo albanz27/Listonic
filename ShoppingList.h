@@ -46,7 +46,6 @@ public:
     // SETTER -> Nome
     void setNome(const string &nome);
 
-    // oggetti pubblico perchè mi serve per stampare gli oggetti su update
     list<ShoppingItem> oggetti;
 };
 
