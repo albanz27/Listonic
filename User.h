@@ -10,7 +10,6 @@ using namespace std;
 class User: public Observer{
 private:
     string nome;
-    list<ShoppingList*> liste;
 
 public:
     // Costruttore Utente
@@ -34,6 +33,7 @@ public:
     // SETTER Nome
     void setNome(const string &nome);
 
+    list<ShoppingList*> liste;
 
 };
 

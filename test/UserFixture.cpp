@@ -3,13 +3,14 @@
 
 class UserFixture : public ::testing::Test {
 protected:
-    User utente;
+    User utente1{"alban"};
+    User utente2{"marco"};
     void SetUp() override {
-        utente.setNome("alban");
-        // Inizializzo lista
-        ShoppingList lista("spesa");
+        // Inizializzo le liste
+        ShoppingList lista1("spesa");
+        ShoppingList lista2("grigliata");
         // Aggiungo la lista all'utente
-        utente.addLista(&lista);
+        //utente1.addLista(&lista1);
     }
 };
 
