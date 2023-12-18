@@ -34,7 +34,7 @@ public:
 
     bool isBought() const;
 
-    void setBought(bool acquistato);
+    void setBought(bool b);
 
 };
 

@@ -28,7 +28,7 @@ int ShoppingItem::getQuantity() const {
 // SETTER -> Quantità
 void ShoppingItem::setQuantity(int q) {
     if(q>=0)
-        ShoppingItem::quantity = q;
+        quantity = q;
     else
         throw std::out_of_range("La quantita' dell'oggetto non e' positiva");
 }
@@ -37,8 +37,8 @@ bool ShoppingItem::isBought() const {
     return bought;
 }
 
-void ShoppingItem::setBought(bool acquistato) {
-    ShoppingItem::bought = acquistato;
+void ShoppingItem::setBought(bool b) {
+    bought = b;
 }
 
 
