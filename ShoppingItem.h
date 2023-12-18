@@ -3,36 +3,38 @@
 
 #include "string"
 #include <iostream>
+#include <exception>
+#include <stdexcept>
 #include <utility>
 
 using namespace std;
 
 class ShoppingItem {
 private:
-    string nome;
-    string categoria;
-    int quantita;
-    bool acquistato;
+    string name;
+    string category;
+    int quantity;
+    bool bought = false;
 
 public:
     // Costruttore oggetto
-    ShoppingItem(const string &nome, const string &categoria, int quantita);
+    ShoppingItem(string n, string c, int q);
 
     // GETTER -> Nome
-    const string &getNome() const;
+    const string &getName() const;
 
     // GETTER -> Categoria
-    const string &getCategoria() const;
+    const string &getCategory() const;
 
     // GETTER -> Quantità
-    int getQuantita() const;
+    int getQuantity() const;
 
     // SETTER -> Quantità
-    void setQuantita(int quantita);
+    void setQuantity(int q);
 
-    bool isAcquistato() const;
+    bool isBought() const;
 
-    void setAcquistato(bool acquistato);
+    void setBought(bool acquistato);
 
 };
 

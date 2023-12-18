@@ -1,37 +1,44 @@
 #include "ShoppingItem.h"
 
+#include <utility>
+
 // Costruttore oggetto
-ShoppingItem::ShoppingItem(const string &nome, const string &categoria, int quantita) : nome(nome),
-                                                                                        categoria(categoria),
-                                                                                        quantita(quantita),
-                                                                                        acquistato(false) {}
+ShoppingItem::ShoppingItem(string n, string c, int q) : name(std::move(n)),category(std::move(c)),quantity(q){
+    if(q>=0)
+        quantity=q;
+    else
+        throw out_of_range("La quantita' dell'oggetto non e' positiva");
+}
 
 // GETTER -> Nome
-const string &ShoppingItem::getNome() const {
-    return nome;
+const string &ShoppingItem::getName() const {
+    return name;
 }
 
 // GETTER -> Categoria
-const string &ShoppingItem::getCategoria() const {
-    return categoria;
+const string &ShoppingItem::getCategory() const {
+    return category;
 }
 
 // GETTER -> Quantità
-int ShoppingItem::getQuantita() const {
-    return quantita;
+int ShoppingItem::getQuantity() const {
+    return quantity;
 }
 
 // SETTER -> Quantità
-void ShoppingItem::setQuantita(int quantita) {
-    ShoppingItem::quantita = quantita;
+void ShoppingItem::setQuantity(int q) {
+    if(q>=0)
+        ShoppingItem::quantity = q;
+    else
+        throw std::out_of_range("La quantita' dell'oggetto non e' positiva");
 }
 
-bool ShoppingItem::isAcquistato() const {
-    return acquistato;
+bool ShoppingItem::isBought() const {
+    return bought;
 }
 
-void ShoppingItem::setAcquistato(bool acquistato) {
-    ShoppingItem::acquistato = acquistato;
+void ShoppingItem::setBought(bool acquistato) {
+    ShoppingItem::bought = acquistato;
 }
 
 
