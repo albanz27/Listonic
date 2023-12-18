@@ -2,14 +2,19 @@
 #include "../ShoppingItem.h"
 
 TEST(ShoppingItem, Constructor) {
-    ShoppingItem ogg("banana","frutto",2);
-    ASSERT_EQ("banana",ogg.getNome());
-    ASSERT_EQ("frutto",ogg.getCategoria());
-    ASSERT_EQ(2,ogg.getQuantita());
+    ShoppingItem item("banana","frutto",2);
+    ASSERT_EQ("banana", item.getName());
+    ASSERT_EQ("frutto", item.getCategory());
+    ASSERT_EQ(2, item.getQuantity());
 }
 
-TEST(ShoppingItem, setAcquistato) {
-    ShoppingItem ogg("banana","frutto",2);
-    ogg.setAcquistato(true);
-    ASSERT_TRUE(ogg.isAcquistato());
+TEST(ShoppingItemSuite, isBought) {
+    ShoppingItem item("banana", "frutto", 2);
+    item.setBought(true);
+    ASSERT_TRUE(item.isBought());
+}
+
+TEST(ShoppingItemSuite, setQuantity) {
+    ShoppingItem item("banana", "frutto", 2);
+    ASSERT_THROW(item.setQuantity(-2),out_of_range);
 }
