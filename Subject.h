@@ -10,6 +10,8 @@ protected:
     list<Observer*> observers;
 
 public:
+    virtual ~Subject() = default;
+
     virtual void addObserver(Observer* observer) = 0;
 
     virtual void removeObserver(Observer* observer) = 0;
