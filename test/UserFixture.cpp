@@ -3,52 +3,50 @@
 
 class UserFixture : public ::testing::Test {
 protected:
-    User utente1{"alban"};
-    ShoppingList lista1{"spesa"};
+    User user1{"alban"};
+    ShoppingList list1{"spesa"};
+    ShoppingList list2{"festa"};
 
     void SetUp() override {
-        utente1.addLista(&lista1);
-    }
-
-    void TearDown() override {
-        while (!utente1.liste.empty()) {
-            const string nLista = utente1.liste.front()->getNome();
-            utente1.remLista(nLista);
-        }
+        user1.addList(&list1);
     }
 };
 
-// addLista
-TEST_F(UserFixture, addLista) {
+TEST_F(UserFixture, addList) {
+    user1.addList(&list2);
 
-    utente1.addLista(&lista1);
+    // controllo numero liste in user1
+    ASSERT_EQ(user1.getLists().size(),2);
 
-    // controllo se è stata aggiunta correttamente
+    // controllo se "festa" e' presente
     bool found = false;
-    for (const ShoppingList* lista : utente1.liste) {
-        if (lista->getNome() == "spesa") {
+    for (const ShoppingList* lista : user1.getLists()) {
+        if (lista->getListName() == "festa") {
             found = true;
         }
     }
     ASSERT_TRUE(found);
 }
 
-// remLista
+// remList
 TEST_F(UserFixture, Test_remLista) {
-    // Rimuovo una lista dall'utente
-    ASSERT_TRUE(utente1.remLista("spesa"));
+    // rimuovo una lista dall'utente
+    ASSERT_TRUE(user1.remList("spesa"));
+
+    // numero liste
+    ASSERT_EQ(user1.getLists().size(),0);
 
     // controllo se è stata rimossa correttamente
     bool found = false;
-    for (const ShoppingList* lista : utente1.liste) {
-        if (lista->getNome() == "spesa") {
+    for (const ShoppingList* lista : user1.getLists()) {
+        if (lista->getListName() == "spesa") {
             found = true;
         }
     }
     ASSERT_FALSE(found);
 
     // Prova a rimuovere una lista non esistente
-    ASSERT_FALSE(utente1.remLista("NON ESISTENTE"));
+    ASSERT_FALSE(user1.remList("NON ESISTENTE"));
 }
 
 
