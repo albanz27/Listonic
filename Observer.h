@@ -5,7 +5,7 @@ class Observer {
 public:
     virtual ~Observer()=default;
 
-    virtual void update() = 0;
+    virtual void update(const string &oggetti) = 0;
 };
 
 #endif //LISTONIC_OBSERVER_H

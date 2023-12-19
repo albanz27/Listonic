@@ -6,9 +6,6 @@
 using namespace std;
 
 class Subject {
-protected:
-    list<Observer*> observers;
-
 public:
     virtual ~Subject() = default;
 
