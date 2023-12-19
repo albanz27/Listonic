@@ -49,4 +49,8 @@ TEST_F(UserFixture, Test_remLista) {
     ASSERT_FALSE(user1.remList("NON ESISTENTE"));
 }
 
+TEST_F(UserFixture, Test_update) {
+
+}
+
 
