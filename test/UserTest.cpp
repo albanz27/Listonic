@@ -3,5 +3,5 @@
 
 TEST(User, Constructor) {
     User utente("alban");
-    ASSERT_EQ("alban",utente.getNome());
+    ASSERT_EQ("alban", utente.getName());
 }
