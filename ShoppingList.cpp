@@ -1,22 +1,23 @@
 #include "ShoppingList.h"
 
 // Costruttore lista
-ShoppingList::ShoppingList(const string &n) : nome(n) {}
+ShoppingList::ShoppingList(string listName) : listName(std::move(listName)) {}
 
-// Aggiunto oggetto
-void ShoppingList::addObject(const ShoppingItem &oggetto) {
-    oggetti.push_back(oggetto);
-    cout<<"Inserimento di '"<<oggetto.getNome()<<"' nella lista: "<<nome<<endl;
+
+// Aggiunto object
+void ShoppingList::addObject(const ShoppingItem &object) {
+    ShoppingList::objects.push_back(object);
+    cout << "Inserimento di '" << object.getName() << "' nella lista: " << listName << endl;
     notify();
     cout<<endl;
 }
 
 // Rimozione oggetto
 bool ShoppingList::removeObject(const string &n) {
-    for(auto itr=oggetti.begin();itr!=oggetti.end();itr++){
-        if(itr->getNome()==n) {
-            cout<<"Rimozione = "<<itr->getNome()<<" dalla lista '"<<nome<<"'"<<endl;
-            oggetti.erase(itr);
+    for(auto itr=objects.begin(); itr != objects.end(); itr++){
+        if(itr->getName() == n) {
+            cout << "Rimozione = " << itr->getName() << " dalla lista '" << listName << "'" << endl;
+            objects.erase(itr);
             notify();
             cout<<endl;
             return true;
@@ -28,13 +29,13 @@ bool ShoppingList::removeObject(const string &n) {
 
 // Acquista oggetto
 bool ShoppingList::stateObject(const string &n, bool a) {
-    for (auto itr = oggetti.begin(); itr != oggetti.end(); itr++) {
-        if (itr->getNome() == n) {
-            itr->setAcquistato(a);
+    for (auto itr = objects.begin(); itr != objects.end(); itr++) {
+        if (itr->getName() == n) {
+            itr->setBought(a);
             if (a)
-                cout << "Oggetto " << itr->getNome() << " e' contrassegnato come acquistato" << endl;
+                cout << "Oggetto " << itr->getName() << " e' contrassegnato come acquistato" << endl;
             else
-                cout << "Oggetto " << itr->getNome() << " e' contrassegnato come non acquistato" << endl;
+                cout << "Oggetto " << itr->getName() << " e' contrassegnato come NON acquistato" << endl;
             notify();
             return true;
         }
@@ -45,26 +46,28 @@ bool ShoppingList::stateObject(const string &n, bool a) {
 
 // Modifica quantità
 bool ShoppingList::modQuantity(const string &n, int q, bool dec) {
-    for(auto & itr : oggetti){
-        if(itr.getNome()==n) {
+    for(auto & itr : objects){
+        if(itr.getName() == n) {
             // se dec è vero allora aumenta quantità altrimenti diminuisce
             if(dec){
-                cout<<"Aumento = "<<itr.getNome()<<" (da '"<<itr.getQuantita()<<"' passa a '"<<itr.getQuantita()+q<<"')"<<endl;
-                itr.setQuantita(itr.getQuantita()+q);
+                cout << "Aumento = " << itr.getName() << " (da '" << itr.getQuantity() << "' passa a '" <<
+                                                                                                        itr.getQuantity() + q << "')" << endl;
+                itr.setQuantity(itr.getQuantity() + q);
                 notify();
                 cout<<endl;
                 return true;
             }
             else{
-                if(itr.getQuantita()>q){
-                    cout<<"Diminuzione = "<<itr.getNome()<<" (da '"<<itr.getQuantita()<<"' passa a '"<<itr.getQuantita()-q<<"')"<<endl;
-                    itr.setQuantita(itr.getQuantita()-q);
+                if(itr.getQuantity() > q){
+                    cout << "Diminuzione = " << itr.getName() << " (da '" << itr.getQuantity() << "' passa a '" <<
+                                                                                                                itr.getQuantity() - q << "')" << endl;
+                    itr.setQuantity(itr.getQuantity() - q);
                     notify();
                     cout<<endl;
                     return true;
                 }
                 else {
-                    cout << "la quantita' inserita e' troppo grande" << endl << endl;
+                    cout << "la quantity' inserita e' troppo grande" << endl << endl;
                     return false;
                 }
             }
@@ -77,13 +80,13 @@ bool ShoppingList::modQuantity(const string &n, int q, bool dec) {
 
 // Visualizzazione lista
 void ShoppingList::show() const{
-    cout<<" | LISTA = "<<getNome()<<" | "<<endl;
-    for(const auto& oggetto:oggetti){
-        cout<<" nome = '"<<oggetto.getNome()<<"'"<<endl;
-        cout<<" categoria = '"<<oggetto.getCategoria()<<"'"<<endl;
-        cout<<" quantita' = '"<<oggetto.getQuantita()<<"'"<<endl;
+    cout << " | LISTA = " << getName() << " | " << endl;
+    for(const auto& oggetto:objects){
+        cout << " name = '" << oggetto.getName() << "'" << endl;
+        cout << " category = '" << oggetto.getCategory() << "'" << endl;
+        cout << " quantity' = '" << oggetto.getQuantity() << "'" << endl;
         cout<<" stato = '";
-        if(oggetto.isAcquistato())
+        if(oggetto.isBought())
             cout<<" ACQUISTATO' ";
         else
             cout<<" NON ACQUISTATO' ";
@@ -92,13 +95,13 @@ void ShoppingList::show() const{
 }
 
 // GETTER -> Nome
-const string &ShoppingList::getNome() const {
-    return nome;
+const string &ShoppingList::getName() const {
+    return listName;
 }
 
 // SETTER -> Nome
-void ShoppingList::setNome(const string &nome) {
-    ShoppingList::nome = nome;
+void ShoppingList::setName(const string &n) {
+    ShoppingList::listName = n;
 }
 
 // Aggiunge Observer
@@ -114,8 +117,24 @@ void ShoppingList::removeObserver(Observer *observer) {
 // Notifica cambiamento
 void ShoppingList::notify() {
     for (Observer* observer : observers) {
-        observer->update();
+        observer->update(listName);
     }
 }
+
+const list<ShoppingItem> &ShoppingList::getObjects() const {
+    return objects;
+}
+
+int ShoppingList::notBought() {
+    int res=0;
+    for(auto &itr: objects){
+        if(!itr.isBought())
+            res+= itr.getQuantity(); //numero di oggetti da acquistare
+    }
+    return res;
+}
+
+
+
 
 

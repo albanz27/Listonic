@@ -3,20 +3,26 @@
 
 #include "string"
 #include "list"
+#include "memory"
 #include "ShoppingItem.h"
 #include "Subject.h"
 using namespace std;
 
 class ShoppingList: public Subject {
 private:
-    string nome;
+    string listName;
+    list<Observer*> observers;
+    list<ShoppingItem> objects;
 
 public:
     // Costruttore lista
-    explicit ShoppingList(const string &n);
+    explicit ShoppingList(string listName);
 
-    // Aggiunto oggetto
-    void addObject(const ShoppingItem &oggetto);
+    // Distruttore
+    virtual ~ShoppingList()= default;
+
+    // Aggiunto object
+    void addObject(const ShoppingItem &object);
 
     // Rimozione oggetto
     bool removeObject(const string &n);
@@ -26,6 +32,8 @@ public:
 
     // Modifica quantità
     bool modQuantity(const string &n, int q, bool dec);
+
+    int notBought();
 
     // Visualizzazione lista
     void show() const;
@@ -41,12 +49,14 @@ public:
 
 
     // GETTER -> Nome
-    const string &getNome() const;
+    const string &getName() const;
 
     // SETTER -> Nome
-    void setNome(const string &nome);
+    void setName(const string &n);
 
-    list<ShoppingItem> oggetti;
+    const list<ShoppingItem> &getObjects() const;
+
+
 };
 
 #endif //LISTONIC_SHOPPINGLIST_H
