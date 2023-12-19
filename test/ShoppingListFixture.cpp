@@ -8,7 +8,6 @@ protected:
     ShoppingItem object1{"Banana", "FRUTTA", 2};
     ShoppingItem object2{"Gocciole", "BISCOTTI", 5};
     ShoppingItem object3{"Insalata", "VERDURE", 1};
-    User user1{"Alban"};
 
     void SetUp() override {
         list1.addObject(object1);
