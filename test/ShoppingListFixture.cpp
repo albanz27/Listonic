@@ -28,7 +28,6 @@ TEST_F(ShoppingListFixture, Test_addObject){
     ASSERT_EQ(list1.notBought(),13);
 }
 
-// removeObject
 TEST_F(ShoppingListFixture, Test_removeObject) {
     // Rimuovo un oggetto dalla lista
     ASSERT_TRUE(list1.removeObject("Banana"));
@@ -37,11 +36,17 @@ TEST_F(ShoppingListFixture, Test_removeObject) {
     ASSERT_FALSE(list1.removeObject("NON ESISTENTE"));
 }
 
-// stateObject
 TEST_F(ShoppingListFixture, Test_stateObject) {
     // Segno le Gocciole come acquistate
     ASSERT_TRUE(list1.stateObject("Gocciole", true));
-    // Segno le Banane come objects da acquistare
+    // Controllo lo stato positivo
+    auto o=list1.getObjects();
+    for(const auto& object:o){
+        if(object.getName()=="Gocciole")
+            ASSERT_TRUE(object.isBought());
+    }
+
+    // Segno le Banane come oggetto da acquistare
     ASSERT_TRUE(list1.stateObject("Banana", false));
     // Cambio stato ad un oggetto non esistente
     ASSERT_FALSE(list1.stateObject("Uova", true));
@@ -60,18 +65,35 @@ TEST_F(ShoppingListFixture, Test_modQuantity) {
     // modifico quantità di un oggetto non esistente
     ASSERT_FALSE(list1.modQuantity("Mela",10,0));
 
+    // controllo quantità
+    auto o=list1.getObjects();
+    for(const auto& object:o){
+        if(object.getName()=="Banana")
+            ASSERT_EQ(object.getQuantity(),12);
+        else if(object.getName()=="Gocciole")
+            ASSERT_EQ(object.getQuantity(),1);
+        else if(object.getName()=="Insalata")
+            ASSERT_EQ(object.getQuantity(),1);
+    }
 
 }
 
 TEST_F(ShoppingListFixture, Test_notBought) {
     // somma degli oggetti non acquistati
     ASSERT_EQ(list1.notBought(),8);
+
+    // segno le gocciole(5) come BOUGHT e controllo nuovamente
+    list1.stateObject("Gocciole", true);
+    ASSERT_EQ(list1.notBought(),3);
+
 }
 
 TEST_F(ShoppingListFixture, Test_subject) {
+    //aggiungo utente negli observer
     list1.addObserver(&user1);
     ASSERT_EQ(list1.getObservers().size(),1);
 
+    // rimuovo utente dagli observer
     list1.removeObserver(&user1);
     ASSERT_EQ(list1.getObservers().size(),0);
 }
