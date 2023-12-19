@@ -49,12 +49,14 @@ public:
 
 
     // GETTER -> Nome
-    const string &getName() const;
+    const string &getListName() const;
 
     // SETTER -> Nome
-    void setName(const string &n);
+    void setListName(const string &n);
 
     const list<ShoppingItem> &getObjects() const;
+
+    const list<Observer *> &getObservers() const;
 
 
 };

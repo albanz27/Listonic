@@ -80,7 +80,7 @@ bool ShoppingList::modQuantity(const string &n, int q, bool dec) {
 
 // Visualizzazione lista
 void ShoppingList::show() const{
-    cout << " | LISTA = " << getName() << " | " << endl;
+    cout << " | LISTA = " << getListName() << " | " << endl;
     for(const auto& oggetto:objects){
         cout << " name = '" << oggetto.getName() << "'" << endl;
         cout << " category = '" << oggetto.getCategory() << "'" << endl;
@@ -95,12 +95,12 @@ void ShoppingList::show() const{
 }
 
 // GETTER -> Nome
-const string &ShoppingList::getName() const {
+const string &ShoppingList::getListName() const {
     return listName;
 }
 
 // SETTER -> Nome
-void ShoppingList::setName(const string &n) {
+void ShoppingList::setListName(const string &n) {
     ShoppingList::listName = n;
 }
 
@@ -132,6 +132,10 @@ int ShoppingList::notBought() {
             res+= itr.getQuantity(); //numero di oggetti da acquistare
     }
     return res;
+}
+
+const list<Observer *> &ShoppingList::getObservers() const {
+    return observers;
 }
 
 
