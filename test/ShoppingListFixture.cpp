@@ -8,6 +8,7 @@ protected:
     ShoppingItem object1{"Banana", "FRUTTA", 2};
     ShoppingItem object2{"Gocciole", "BISCOTTI", 5};
     ShoppingItem object3{"Insalata", "VERDURE", 1};
+    User user1{"Alban"};
 
     void SetUp() override {
         list1.addObject(object1);
@@ -68,4 +69,9 @@ TEST_F(ShoppingListFixture, Test_notBought) {
 }
 
 TEST_F(ShoppingListFixture, Test_subject) {
+    list1.addObserver(&user1);
+    ASSERT_EQ(list1.getObservers().size(),1);
+
+    list1.removeObserver(&user1);
+    ASSERT_EQ(list1.getObservers().size(),0);
 }
