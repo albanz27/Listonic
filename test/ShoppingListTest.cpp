@@ -3,5 +3,5 @@
 
 TEST(ShoppingList, Constructor) {
     ShoppingList lista("spesa");
-    ASSERT_EQ("spesa", lista.getName());
+    ASSERT_EQ("spesa", lista.getListName());
 }

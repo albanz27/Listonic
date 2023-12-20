@@ -33,6 +33,7 @@ public:
     // Modifica quantità
     bool modQuantity(const string &n, int q, bool dec);
 
+    // Non acquistato
     int notBought();
 
     // Visualizzazione lista
@@ -47,12 +48,7 @@ public:
     // Notifica cambiamento
     void notify() override;
 
-
-    // GETTER -> Nome
     const string &getListName() const;
-
-    // SETTER -> Nome
-    void setListName(const string &n);
 
     const list<ShoppingItem> &getObjects() const;
 
