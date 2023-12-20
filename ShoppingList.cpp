@@ -99,11 +99,6 @@ const string &ShoppingList::getListName() const {
     return listName;
 }
 
-// SETTER -> Nome
-void ShoppingList::setListName(const string &n) {
-    ShoppingList::listName = n;
-}
-
 // Aggiunge Observer
 void ShoppingList::addObserver(Observer *observer) {
     observers.push_back(observer);
@@ -128,9 +123,12 @@ const list<ShoppingItem> &ShoppingList::getObjects() const {
 int ShoppingList::notBought() {
     int res=0;
     for(auto &itr: objects){
-        if(!itr.isBought())
+        if(!itr.isBought()){
+            cout<<itr.getName()<<", quantita' da acquistare: "<<itr.getQuantity()<<endl;
             res+= itr.getQuantity(); //numero di oggetti da acquistare
+        }
     }
+    cout<<"Numero totale di oggetti da acquistare "<<res<<endl;
     return res;
 }
 
