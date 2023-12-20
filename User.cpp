@@ -1,22 +1,22 @@
 #include "User.h"
 
 // Costruttore Utente
-User::User(const string &n) : nome(n) {}
+User::User(const string &n) : userName(n) {}
 
-// Aggiungi lista utente
-void User::addLista(ShoppingList *lista) {
-    liste.push_back(lista);
-    lista->addObserver(this);
-    cout<<"Condivisione lista = "<<lista->getNome()<<" con utente '"<<nome<<"'"<<endl;
+// Aggiungi utente
+void User::addList(ShoppingList *l) {
+    lists.push_back(l);
+    l->addObserver(this);
+    cout << "Condivisione lista = " << l->getListName() << " con utente '" << userName << "'" << endl;
 }
 
 // Rimuovi lista utente
-bool User::remLista(const string &n) {
-    for(auto itr=liste.begin();itr!=liste.end();itr++){
-        if((*itr)->getNome()==n) {
-            cout<<"Rimozione lista = "<<(*itr)->getNome()<<" dall'utente "<<nome<<endl;
+bool User::remList(const string &n) {
+    for(auto itr=lists.begin(); itr != lists.end(); itr++){
+        if((*itr)->getListName() == n) {
+            cout << "Rimozione lista = " << (*itr)->getListName() << " dall'utente " << userName << endl;
             (*itr)->removeObserver(this);
-            liste.erase(itr);
+            lists.erase(itr);
             return true;
         }
     }
@@ -24,50 +24,28 @@ bool User::remLista(const string &n) {
     return false;
 }
 
-// Visualizzazione liste utenti
+// Visualizzazione lists utenti
 void User::view() {
-    cout<<"Utente "<<nome<<", visualizzazione liste ->"<<endl;
-    for(auto lista:liste)
-        lista->show();
+    cout << "Utente " << userName << ", visualizzazione lists ->" << endl;
+    for(auto list:lists)
+        list->show();
 }
 
 // Aggiornamento cambiamenti di stato
-void User::update() {
-    cout<<"Notifica per utente "<<getNome()<<endl;
-    // stampa oggetti da acquistare numerati
-    for (auto lista : liste) {
-        int conta = 0;
-        if(!lista->oggetti.empty())
-            cout <<"Lista: " << lista->getNome() <<" oggetti da acquistare"<< endl;
-        for (const auto& oggetto : lista->oggetti) {
-            if (!oggetto.isAcquistato()) {
-                conta++;
-                cout << conta<<") " << oggetto.getNome() << endl;
-            }
-        }
-    }
-    // stampa oggetti acquistati numerati
-    for (auto lista : liste) {
-        int conta = 0;
-        for (const auto& oggetto : lista->oggetti) {
-            if (oggetto.isAcquistato()) {
-                if(conta==0)
-                    cout <<"Lista: " << lista->getNome() <<" oggetti acquistati"<< endl;
-                conta++;
-                cout << conta<<") " << oggetto.getNome() << endl;
-            }
-        }
-    }
-    cout<<endl;
+void User::update(const string &o) {
+    cout << "Notifica per utente " << getName() << endl;
+
+    for(auto list:lists)
+        if(list->getListName()==o)
+            list->notBought();
 }
 
 
 // GETTER -> Nome
-const string &User::getNome() const {
-    return nome;
+const string &User::getName() const {
+    return userName;
 }
 
-// SETTER -> Nome
-void User::setNome(const string &nome) {
-    User::nome = nome;
+const list<ShoppingList *> &User::getLists() const {
+    return lists;
 }

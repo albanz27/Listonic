@@ -9,31 +9,29 @@ using namespace std;
 
 class User: public Observer{
 private:
-    string nome;
+    string userName;
+    list<ShoppingList*> lists;
 
 public:
     // Costruttore Utente
     explicit User(const string &n);
 
-    // Aggiungi lista utente
-    void addLista(ShoppingList* lista);
+    // Aggiungi utente
+    void addList(ShoppingList* l);
 
     // Rimuovi lista utente
-    bool remLista(const string &n);
+    bool remList(const string &n);
 
-    // Visualizzazione liste utenti
+    // Visualizzazione lists utenti
     void view();
 
     // Aggiornamento cambiamenti di stato
-    void update() override;
+    void update(const string &o) override;
 
     // GETTER Nome
-    const string &getNome() const;
+    const string &getName() const;
 
-    // SETTER Nome
-    void setNome(const string &nome);
-
-    list<ShoppingList*> liste;
+    const list<ShoppingList *> &getLists() const;
 
 };
 
