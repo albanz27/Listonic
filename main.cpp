@@ -37,15 +37,15 @@ int main() {
     ShoppingItem oggetto7("Latte","LATTE",2);
 
     // LISTE DI ALBAN
-    utente1.addLista(&lista1);
-    utente1.addLista(&lista2);
-    utente1.addLista(&lista3);
+    utente1.addList(&lista1);
+    utente1.addList(&lista2);
+    utente1.addList(&lista3);
 
     // LISTE DI MARCO
-    utente2.addLista(&lista2);
+    utente2.addList(&lista2);
 
     // LISTE DI GIACOMO
-    utente3.addLista(&lista1);
+    utente3.addList(&lista1);
 
     cout<<endl;
 
@@ -63,9 +63,9 @@ int main() {
     lista3.addObject(oggetto5);
     lista3.addObject(oggetto6);
 
-    // visualizzazione tutte le liste di ciascun utente
+    // visualizzazione tutte le lists di ciascun utente
     /*
-    utente1.view();
+    user1.view();
     cout<<endl<<endl;
     utente2.view();
     cout<<endl<<endl;
@@ -86,9 +86,9 @@ int main() {
     lista2.modQuantity("Farina",4, false);
     lista1.stateObject("Banana", true);
 
-    // visualizzazione tutte le liste di ciascun utente
+    // visualizzazione tutte le lists di ciascun utente
     /*
-    utente1.view();
+    user1.view();
     cout<<endl<<endl;
     utente2.view();
     cout<<endl<<endl;
@@ -97,7 +97,7 @@ int main() {
     */
 
     // rimozione lista grigliata utente Alban
-    utente1.remLista("grigliata");
+    utente1.remList("grigliata");
     utente1.view();
 
     return 0;
