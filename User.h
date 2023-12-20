@@ -13,22 +13,16 @@ private:
     list<ShoppingList*> lists;
 
 public:
-    // Costruttore Utente
     explicit User(const string &n);
 
-    // Aggiungi utente
     void addList(ShoppingList* l);
 
-    // Rimuovi lista utente
     bool remList(const string &n);
 
-    // Visualizzazione lists utenti
     void view();
 
-    // Aggiornamento cambiamenti di stato
     void update(const string &o) override;
 
-    // GETTER Nome
     const string &getName() const;
 
     const list<ShoppingList *> &getLists() const;

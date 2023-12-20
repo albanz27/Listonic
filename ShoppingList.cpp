@@ -1,10 +1,7 @@
 #include "ShoppingList.h"
 
-// Costruttore lista
 ShoppingList::ShoppingList(string listName) : listName(std::move(listName)) {}
 
-
-// Aggiunto object
 void ShoppingList::addObject(const ShoppingItem &object) {
     ShoppingList::objects.push_back(object);
     cout << "Inserimento di '" << object.getName() << "' nella lista: " << listName << endl;
@@ -12,7 +9,6 @@ void ShoppingList::addObject(const ShoppingItem &object) {
     cout<<endl;
 }
 
-// Rimozione oggetto
 bool ShoppingList::removeObject(const string &n) {
     for(auto itr=objects.begin(); itr != objects.end(); itr++){
         if(itr->getName() == n) {
@@ -27,15 +23,14 @@ bool ShoppingList::removeObject(const string &n) {
     return false;
 }
 
-// Acquista oggetto
 bool ShoppingList::stateObject(const string &n, bool a) {
-    for (auto itr = objects.begin(); itr != objects.end(); itr++) {
-        if (itr->getName() == n) {
-            itr->setBought(a);
+    for (auto & object : objects) {
+        if (object.getName() == n) {
+            object.setBought(a);
             if (a)
-                cout << "Oggetto " << itr->getName() << " e' contrassegnato come acquistato" << endl;
+                cout << "Oggetto " << object.getName() << " e' contrassegnato come acquistato" << endl;
             else
-                cout << "Oggetto " << itr->getName() << " e' contrassegnato come NON acquistato" << endl;
+                cout << "Oggetto " << object.getName() << " e' contrassegnato come NON acquistato" << endl;
             notify();
             return true;
         }
@@ -44,7 +39,6 @@ bool ShoppingList::stateObject(const string &n, bool a) {
     return false;
 }
 
-// Modifica quantità
 bool ShoppingList::modQuantity(const string &n, int q, bool dec) {
     for(auto & itr : objects){
         if(itr.getName() == n) {
@@ -78,15 +72,14 @@ bool ShoppingList::modQuantity(const string &n, int q, bool dec) {
     return false;
 }
 
-// Visualizzazione lista
 void ShoppingList::show() const{
     cout << " | LISTA = " << getListName() << " | " << endl;
-    for(const auto& oggetto:objects){
-        cout << " name = '" << oggetto.getName() << "'" << endl;
-        cout << " category = '" << oggetto.getCategory() << "'" << endl;
-        cout << " quantity' = '" << oggetto.getQuantity() << "'" << endl;
+    for(const auto& object:objects){
+        cout << " name = '" << object.getName() << "'" << endl;
+        cout << " category = '" << object.getCategory() << "'" << endl;
+        cout << " quantity' = '" << object.getQuantity() << "'" << endl;
         cout<<" stato = '";
-        if(oggetto.isBought())
+        if(object.isBought())
             cout<<" ACQUISTATO' ";
         else
             cout<<" NON ACQUISTATO' ";
@@ -94,22 +87,18 @@ void ShoppingList::show() const{
     }
 }
 
-// GETTER -> Nome
 const string &ShoppingList::getListName() const {
     return listName;
 }
 
-// Aggiunge Observer
 void ShoppingList::addObserver(Observer *observer) {
     observers.push_back(observer);
 }
 
-// Rimuove Observer
 void ShoppingList::removeObserver(Observer *observer) {
     observers.remove(observer);
 }
 
-// Notifica cambiamento
 void ShoppingList::notify() {
     for (Observer* observer : observers) {
         observer->update(listName);
@@ -122,12 +111,13 @@ const list<ShoppingItem> &ShoppingList::getObjects() const {
 
 int ShoppingList::notBought() {
     int res=0;
-    for(auto &itr: objects){
-        if(!itr.isBought()){
-            cout<<itr.getName()<<", quantita' da acquistare: "<<itr.getQuantity()<<endl;
-            res+= itr.getQuantity(); //numero di oggetti da acquistare
+    for (auto &object: objects) {
+        if (!object.isBought()) {
+            cout << object.getName() << ", quantita' da acquistare: " << object.getQuantity() << endl;
+            res += object.getQuantity(); //numero di oggetti da acquistare
         }
     }
+
     cout<<"Numero totale di oggetti da acquistare "<<res<<endl;
     return res;
 }
@@ -135,8 +125,3 @@ int ShoppingList::notBought() {
 const list<Observer *> &ShoppingList::getObservers() const {
     return observers;
 }
-
-
-
-
-

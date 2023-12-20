@@ -2,7 +2,7 @@
 #define LISTONIC_SUBJECT_H
 
 #include "Observer.h"
-#include "list"
+
 using namespace std;
 
 class Subject {

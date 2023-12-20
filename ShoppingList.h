@@ -15,37 +15,26 @@ private:
     list<ShoppingItem> objects;
 
 public:
-    // Costruttore lista
     explicit ShoppingList(string listName);
 
-    // Distruttore
     virtual ~ShoppingList()= default;
 
-    // Aggiunto object
     void addObject(const ShoppingItem &object);
 
-    // Rimozione oggetto
     bool removeObject(const string &n);
 
-    // Acquista oggetto
     bool stateObject(const string &n, bool a);
 
-    // Modifica quantità
     bool modQuantity(const string &n, int q, bool dec);
 
-    // Non acquistato
     int notBought();
 
-    // Visualizzazione lista
     void show() const;
 
-    // Aggiunge Observer
     void addObserver(Observer* observer) override;
 
-    // Rimuove Observer
     void removeObserver(Observer* observer) override;
 
-    // Notifica cambiamento
     void notify() override;
 
     const string &getListName() const;
@@ -53,7 +42,6 @@ public:
     const list<ShoppingItem> &getObjects() const;
 
     const list<Observer *> &getObservers() const;
-
 
 };
 
