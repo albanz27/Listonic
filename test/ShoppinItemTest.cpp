@@ -6,6 +6,7 @@ TEST(ShoppingItem, Constructor) {
     ASSERT_EQ("banana", item.getName());
     ASSERT_EQ("frutto", item.getCategory());
     ASSERT_EQ(2, item.getQuantity());
+    ASSERT_THROW(ShoppingItem item2("mela","frutto",-1),out_of_range);
 }
 
 TEST(ShoppingItemSuite, isBought) {
