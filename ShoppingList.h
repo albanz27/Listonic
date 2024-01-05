@@ -17,7 +17,7 @@ private:
 public:
     explicit ShoppingList(string listName);
 
-    virtual ~ShoppingList()= default;
+    ~ShoppingList() override = default;
 
     void addObject(const ShoppingItem &object);
 
