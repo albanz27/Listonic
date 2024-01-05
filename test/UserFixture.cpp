@@ -19,13 +19,10 @@ TEST_F(UserFixture, addList) {
     ASSERT_EQ(user1.getLists().size(),2);
 
     // controllo se "festa" e' presente
-    bool found = false;
-    for (const ShoppingList* lista : user1.getLists()) {
-        if (lista->getListName() == "festa") {
-            found = true;
-        }
-    }
-    ASSERT_TRUE(found);
+    auto it = std::find_if(user1.getLists().begin(), user1.getLists().end(),[](const ShoppingList* list) {
+        return list->getListName() == "festa";
+    });
+    ASSERT_TRUE(it != user1.getLists().end());
 }
 
 // remList
@@ -37,13 +34,10 @@ TEST_F(UserFixture, Test_remLista) {
     ASSERT_EQ(user1.getLists().size(),0);
 
     // controllo se è stata rimossa correttamente
-    bool found = false;
-    for (const ShoppingList* lista : user1.getLists()) {
-        if (lista->getListName() == "spesa") {
-            found = true;
-        }
-    }
-    ASSERT_FALSE(found);
+    auto it = std::find_if(user1.getLists().begin(), user1.getLists().end(),[](const ShoppingList* list) {
+        return list->getListName() == "spesa";
+    });
+    ASSERT_FALSE(it != user1.getLists().end());
 
     // Prova a rimuovere una lista non esistente
     ASSERT_FALSE(user1.remList("NON ESISTENTE"));
